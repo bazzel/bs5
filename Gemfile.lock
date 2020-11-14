@@ -3,6 +3,7 @@ PATH
   specs:
     bs5 (0.1.0)
       rails (~> 6.0.3, >= 6.0.3.4)
+      view_component (~> 2.22.0)
 
 GEM
   remote: https://rubygems.org/
@@ -127,6 +128,8 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
+    view_component (2.22.1)
+      activesupport (>= 5.0.0, < 7.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
