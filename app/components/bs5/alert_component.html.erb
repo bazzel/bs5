@@ -1,3 +1,6 @@
-<div class="alert <%= contextual_class %>" role="alert">
+<div class="<%= component_class %>" role="alert">
   <%= content %>
+  <%- if is_dismissable %>
+    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+  <%- end %>
 </div>

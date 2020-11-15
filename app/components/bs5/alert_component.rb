@@ -6,14 +6,15 @@ module Bs5
 
     include ActiveModel::Validations
 
-    attr_reader :type
+    attr_reader :type, :is_dismissable
 
-    validates :type, inclusion: { in: TYPES, message: lambda do |_object, data|
+    validates :type, inclusion: { in: TYPES, message: lambda do |_, data|
       "#{data[:value].inspect} is not valid. Try #{TYPES.to_sentence(last_word_connector: ' or ')}."
     end }
 
-    def initialize(type: :primary)
+    def initialize(type: :primary, is_dismissable: false)
       @type = type.to_sym
+      @is_dismissable = is_dismissable
     end
 
     def before_render
@@ -21,6 +22,12 @@ module Bs5
     end
 
     private
+
+    def component_class
+      class_names = ['alert', contextual_class]
+      class_names << %w[alert-dismissible fade show] if is_dismissable
+      class_names.join(' ')
+    end
 
     def contextual_class
       "alert-#{@type}"

@@ -40,4 +40,18 @@ RSpec.describe Bs5::AlertComponent, type: :component do
       }
     end
   end
+
+  describe 'with `is_dismissable`' do
+    let(:html) do
+      render_inline(described_class
+      .new(options)) { 'Hello world!' }
+    end
+    let(:options) do
+      { is_dismissable: true }
+    end
+
+    it {
+      is_expected.to have_selector('.alert.alert-dismissible.fade.show button.btn-close[type="button"][data-dismiss="alert"][aria-label="Close"]')
+    }
+  end
 end
