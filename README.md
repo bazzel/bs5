@@ -1,6 +1,8 @@
 # Bs5
 
-Short description and motivation.
+This is a Ruby on Rails engine to include [Bootstrap 5](https://v5.getbootstrap.com/).
+
+[![Gem Version](https://badge.fury.io/rb/bs5.svg)](https://badge.fury.io/rb/bs5)
 
 ## Usage
 
@@ -34,7 +36,7 @@ Run the following command to setup your project to use Bootstrap 5.
     
 ## Components
 
-### Alert ✅
+### Alert 🖌
 
 ```
 <%= render Bs5::AlertComponent.new do %>

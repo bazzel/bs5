@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.version     = Bs5::VERSION
   spec.authors     = ['Patrick Baselier']
   spec.email       = ['patrick.baselier@gmail.com']
-  spec.homepage    = ''
+  spec.homepage    = 'https://github.com/bazzel/bs5'
   spec.summary     = 'Bootstrap 5'
   spec.description = '[WIP] Rails engine to include Bootstrap 5.'
   spec.license     = 'MIT'
