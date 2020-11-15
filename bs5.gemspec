@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Patrick Baselier']
   spec.email       = ['patrick.baselier@gmail.com']
   spec.homepage    = ''
-  spec.summary     = 'Summary of Bs5.'
-  spec.description = 'Description of Bs5.'
+  spec.summary     = 'Bootstrap 5'
+  spec.description = '[WIP] Rails engine to include Bootstrap 5.'
   spec.license     = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
