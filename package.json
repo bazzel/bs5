@@ -1,7 +1,7 @@
 {
   "name": "bs5",
   "public": true,
-  "main": "public/bs5-packs/js/application-2311ff90803babfba3cc.js",
+  "main": "public/bs5-packs/js/application-cf182db808efe3a1e718.js",
   "dependencies": {
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
@@ -10,7 +10,7 @@
     "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0"
   },
-  "version": "0.1.17",
+  "version": "0.1.18",
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"
   }
