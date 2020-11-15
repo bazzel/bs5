@@ -31,6 +31,26 @@ $ gem install bs5
 Run the following command to setup your project to use Bootstrap 5.
 
     $ rails generate bs5:install
+    
+## Components
+
+### Alert ✅
+
+```
+<%= render Bs5::AlertComponent.new do %>
+  A simple primary alert—check it out!
+<%- end %>
+```
+
+```
+<%= render Bs5::AlertComponent.new(type: :warning, is_dismissable: true) do %>
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+<%- end %>
+```
+
+## Previewing components
+
+* http://localhost:3000/rails/view_components
 
 ## Contributing
 
