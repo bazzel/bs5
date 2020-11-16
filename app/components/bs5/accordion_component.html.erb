@@ -1,0 +1,18 @@
+<% if items.any? %>
+  <div class="accordion <%= flush? ? 'accordion-flush' : '' %>" id="<%= id %>">
+    <% items.each do |item| %>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="<%= item.heading_id %>">
+          <button class="accordion-button <%= item.collapsed? ? 'collapsed' : '' %>" type="button" data-toggle="collapse" data-target="#<%= item.collapse_id %>" aria-expanded="true" aria-controls="<%= item.collapse_id %>">
+            <%= item.title %>
+          </button>
+        </h2>
+        <div id="<%= item.collapse_id %>" class="accordion-collapse collapse <%= item.collapsed? ? '' : 'show' %>" aria-labelledby="<%= item.heading_id %>" data-parent="#<%= id %>">
+          <div class="accordion-body">
+            <%= item.content %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
