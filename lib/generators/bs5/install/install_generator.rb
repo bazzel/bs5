@@ -14,6 +14,12 @@ class Bs5::InstallGenerator < Rails::Generators::Base
       HEREDOC
     end
 
+    inject_into_file 'app/controllers/application_controller.rb', after: "ActionController::Base\n" do
+      <<~HEREDOC
+        helper Bs5::Engine.helpers
+      HEREDOC
+    end
+
     append_file 'app/javascript/packs/application.js', <<~HEREDOC
       import "bootstrap";
     HEREDOC
