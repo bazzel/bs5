@@ -21,6 +21,10 @@ module Bs5
       raise errors.full_messages.to_sentence if invalid?
     end
 
+    def render?
+      content.present?
+    end
+
     private
 
     def component_class
