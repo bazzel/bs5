@@ -36,7 +36,7 @@ Run the following command to setup your project to use Bootstrap 5.
     
 ## Components
 
-### Accordion 🖌
+### [Accordion](https://v5.getbootstrap.com/docs/5.0/components/accordion/) ✅
 
 ```
 <%= bs5_accordion do |accordion| %>
@@ -65,7 +65,7 @@ Run the following command to setup your project to use Bootstrap 5.
 <%- end %>
 ```
 
-### Alert ✅
+### [Alert](https://v5.getbootstrap.com/docs/5.0/components/alerts/) ✅
 
 ```
 <%= bs5_alert do %>
@@ -78,6 +78,13 @@ Run the following command to setup your project to use Bootstrap 5.
   <strong>Holy guacamole!</strong> You should check in on some of those fields below.
 <%- end %>
 ```
+
+### [Badge](https://v5.getbootstrap.com/docs/5.0/components/badge/)
+
+### [Breadcrumb](https://v5.getbootstrap.com/docs/5.0/components/breadcrumb/)
+
+###[Button](https://v5.getbootstrap.com/docs/5.0/components/buttons/)
+
 
 ## Previewing components
 
