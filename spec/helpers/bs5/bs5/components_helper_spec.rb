@@ -17,5 +17,21 @@ module Bs5
         is_expected.to have_selector('.alert.alert-dismissible.fade.show[role="alert"] button.btn-close[type="button"][data-dismiss="alert"][aria-label="Close"]')
       }
     end
+
+    describe 'Accordion' do
+      subject do
+        helper.bs5_accordion(options) do |accordion|
+          accordion.slot(:item, title: 'Foo', collapsed: false) { 'Lorem Ipsum' }
+          accordion.slot(:item, title: 'Bar') { 'Dolor Sit' }
+        end
+      end
+
+      let(:options) do
+        { flush: true }
+      end
+
+      it { is_expected.to have_selector('.accordion.accordion-flush') }
+      it { is_expected.to have_selector('.accordion .accordion-item', count: 2) }
+    end
   end
 end

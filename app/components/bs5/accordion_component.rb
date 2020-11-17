@@ -18,6 +18,12 @@ module Bs5
       "accordion-#{object_id}"
     end
 
+    def component_class
+      class_names = ['accordion']
+      class_names << %w[accordion-flush] if flush?
+      class_names.join(' ')
+    end
+
     class Item < ViewComponent::Slot
       attr_reader :title
 
@@ -30,8 +36,8 @@ module Bs5
         object_id
       end
 
-      def heading_id
-        "heading-#{id}"
+      def header_id
+        "header-#{id}"
       end
 
       def collapse_id
@@ -40,6 +46,18 @@ module Bs5
 
       def collapsed?
         @collapsed
+      end
+
+      def button_class
+        class_names = ['accordion-button']
+        class_names << %w[collapsed] if collapsed?
+        class_names.join(' ')
+      end
+
+      def collapse_class
+        class_names = %w[accordion-collapse collapse]
+        class_names << %w[show] unless collapsed?
+        class_names.join(' ')
       end
     end
   end

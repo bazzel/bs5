@@ -7,5 +7,11 @@ module Bs5
         yield if block_given?
       end
     end
+
+    def bs5_accordion(*args)
+      render AccordionComponent.new(*args) do |accordion|
+        yield accordion if block_given?
+      end
+    end
   end
 end
