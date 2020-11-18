@@ -12,7 +12,6 @@ module Bs5
       end
 
       it {
-        p subject
         is_expected.to have_selector('.alert.alert-secondary[role="alert"]', text: 'Hello world!')
         is_expected.to have_selector('.alert.alert-dismissible.fade.show[role="alert"] button.btn-close[type="button"][data-dismiss="alert"][aria-label="Close"]')
       }
