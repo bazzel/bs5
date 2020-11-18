@@ -36,9 +36,9 @@ Run the following command to setup your project to use Bootstrap 5.
 
 ## Components
 
-- [Accordion](#accordion-) ✅
-- [Alert](#alert-) ✅
-- [Badge](#badge-) ✅
+- [Accordion](#accordion) ✅
+- [Alert](#alert) ✅
+- [Badge](#badge) ✅
 - Breadcrumb
 - Buttons
 - Button group
