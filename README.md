@@ -36,6 +36,9 @@ Run the following command to setup your project to use Bootstrap 5.
 
 ## Components
 
+- [Accordion](#accordion-)
+
+
 ### [Accordion](https://v5.getbootstrap.com/docs/5.0/components/accordion/) ✅
 
 ```
