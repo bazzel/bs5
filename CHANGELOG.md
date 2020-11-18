@@ -13,3 +13,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add ViewComponent for Accordion component.
 - Add ViewComponent for Alert component.
 - Add ViewComponent for Badge component.
+- Add ViewComponent for Close button component.
