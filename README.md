@@ -80,11 +80,24 @@ Run the following command to setup your project to use Bootstrap 5.
 <%- end %>
 ```
 
-### [Badge](https://v5.getbootstrap.com/docs/5.0/components/badge/)
+### [Badge](https://v5.getbootstrap.com/docs/5.0/components/badge/) ✅
+
+```
+<%= bs5_badge(text: 'New') %>
+```
+
+```
+<%= bs5_badge(text: 'Warning', style: :warning) %>
+```
+
+```
+<%= bs5_badge(text: 'Danger', style: :danger, pill: true) %>
+```
+
 
 ### [Breadcrumb](https://v5.getbootstrap.com/docs/5.0/components/breadcrumb/)
 
-###[Button](https://v5.getbootstrap.com/docs/5.0/components/buttons/)
+### [Button](https://v5.getbootstrap.com/docs/5.0/components/buttons/)
 
 ## Previewing components
 
