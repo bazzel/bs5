@@ -17,5 +17,9 @@ module Bs5
     def bs5_badge(*args)
       render BadgeComponent.new(*args)
     end
+
+    def bs5_close_button(*args)
+      render CloseButtonComponent.new(*args)
+    end
   end
 end

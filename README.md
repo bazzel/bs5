@@ -44,7 +44,7 @@ Run the following command to setup your project to use Bootstrap 5.
 - Button group
 - Card
 - Carousel
-- Close button
+- [Close button](#close-button) ✅
 - Collapse
 - Dropdowns
 - List group
@@ -122,6 +122,24 @@ Run the following command to setup your project to use Bootstrap 5.
 ### [Breadcrumb](https://v5.getbootstrap.com/docs/5.0/components/breadcrumb/)
 
 ### [Button](https://v5.getbootstrap.com/docs/5.0/components/buttons/)
+
+### [Close button](https://v5.getbootstrap.com/docs/5.0/components/close-button/)
+
+```
+<%= bs5_close_button %>
+```
+
+```
+<%= bs5_close_button(disabled: true) %>
+```
+
+```
+<%= bs5_close_button(white: true) %>
+```
+
+```
+<%= bs5_close_button(data: { controller: 'hello', action: "click->hello#greet }) %>
+```
 
 ## Previewing components
 
