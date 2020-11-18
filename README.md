@@ -36,10 +36,31 @@ Run the following command to setup your project to use Bootstrap 5.
 
 ## Components
 
-- [Accordion](#accordion-)
+- [Accordion](#accordion-) ✅
+- [Alert](#alert-) ✅
+- [Badge](#badge-) ✅
+- Breadcrumb
+- Buttons
+- Button group
+- Card
+- Carousel
+- Close button
+- Collapse
+- Dropdowns
+- List group
+- Modal
+- Nav & tabs
+- Navbar
+- Pagination
+- Popovers
+- Progress
+- Scrollspy
+- Spinners
+- Toasts
+- Tooltips
 
 
-### [Accordion](https://v5.getbootstrap.com/docs/5.0/components/accordion/) ✅
+### [Accordion](https://v5.getbootstrap.com/docs/5.0/components/accordion/)
 
 ```
 <%= bs5_accordion do |accordion| %>
@@ -69,7 +90,7 @@ Run the following command to setup your project to use Bootstrap 5.
 <%- end %>
 ```
 
-### [Alert](https://v5.getbootstrap.com/docs/5.0/components/alerts/) ✅
+### [Alert](https://v5.getbootstrap.com/docs/5.0/components/alerts/)
 
 ```
 <%= bs5_alert do %>
@@ -83,7 +104,7 @@ Run the following command to setup your project to use Bootstrap 5.
 <%- end %>
 ```
 
-### [Badge](https://v5.getbootstrap.com/docs/5.0/components/badge/) ✅
+### [Badge](https://v5.getbootstrap.com/docs/5.0/components/badge/)
 
 ```
 <%= bs5_badge(text: 'New') %>
