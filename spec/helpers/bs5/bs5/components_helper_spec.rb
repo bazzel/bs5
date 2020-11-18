@@ -7,7 +7,7 @@ module Bs5
     describe 'Alert' do
       subject { helper.bs5_alert(options) { 'Hello world!' } }
       let(:options) do
-        { type: 'secondary',
+        { style: 'secondary',
           is_dismissable: true }
       end
 

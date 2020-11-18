@@ -13,25 +13,25 @@ RSpec.describe Bs5::AlertComponent, type: :component do
     }
   end
 
-  describe 'with `type` specified' do
+  describe 'with `style` specified' do
     let(:html) do
       render_inline(described_class
         .new(options)) { 'Hello world!' }
     end
     let(:options) do
-      { type: type }
+      { style: style }
     end
 
-    describe 'with a valid type' do
-      let(:type) { 'primary' }
+    describe 'with a valid style' do
+      let(:style) { 'primary' }
 
       it {
         is_expected.to have_selector('.alert.alert-primary[role="alert"]')
       }
     end
 
-    describe 'with an invalid type' do
-      let(:type) { 'lorem' }
+    describe 'with an invalid style' do
+      let(:style) { 'lorem' }
 
       it {
         expect do

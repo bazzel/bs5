@@ -33,7 +33,7 @@ $ gem install bs5
 Run the following command to setup your project to use Bootstrap 5.
 
     $ rails generate bs5:install
-    
+
 ## Components
 
 ### [Accordion](https://v5.getbootstrap.com/docs/5.0/components/accordion/) ✅
@@ -51,6 +51,7 @@ Run the following command to setup your project to use Bootstrap 5.
   <% end %>
 <%- end %>
 ```
+
 ```
 <%= bs5_accordion(flush: true) do |accordion| %>
   <% accordion.slot(:item, title: 'Accordion Item #1') do %>
@@ -74,7 +75,7 @@ Run the following command to setup your project to use Bootstrap 5.
 ```
 
 ```
-<%= bs5_alert(type: :warning, is_dismissable: true) do %>
+<%= bs5_alert(style: :warning, is_dismissable: true) do %>
   <strong>Holy guacamole!</strong> You should check in on some of those fields below.
 <%- end %>
 ```
@@ -85,10 +86,9 @@ Run the following command to setup your project to use Bootstrap 5.
 
 ###[Button](https://v5.getbootstrap.com/docs/5.0/components/buttons/)
 
-
 ## Previewing components
 
-* http://localhost:3000/rails/view_components
+- http://localhost:3000/rails/view_components
 
 ## Contributing
 

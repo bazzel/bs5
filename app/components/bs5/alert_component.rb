@@ -2,18 +2,13 @@
 
 module Bs5
   class AlertComponent < ViewComponent::Base
-    TYPES = %i[primary secondary success danger warning info light dark].freeze
+    attr_reader :style, :is_dismissable
 
     include ActiveModel::Validations
+    validates :style, style: true
 
-    attr_reader :type, :is_dismissable
-
-    validates :type, inclusion: { in: TYPES, message: lambda do |_, data|
-      "#{data[:value].inspect} is not valid. Try #{TYPES.to_sentence(last_word_connector: ' or ')}."
-    end }
-
-    def initialize(type: :primary, is_dismissable: false)
-      @type = type.to_sym
+    def initialize(style: :primary, is_dismissable: false)
+      @style = style.to_sym
       @is_dismissable = is_dismissable
     end
 
@@ -34,7 +29,7 @@ module Bs5
     end
 
     def contextual_class
-      "alert-#{@type}"
+      "alert-#{@style}"
     end
   end
 end

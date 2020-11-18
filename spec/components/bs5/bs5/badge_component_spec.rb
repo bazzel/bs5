@@ -15,10 +15,10 @@ RSpec.describe Bs5::BadgeComponent, type: :component do
   end
 
   describe 'with `type` specified' do
-    let(:options) { { text: text, type: type } }
+    let(:options) { { text: text, style: style } }
 
     describe 'that has light text' do
-      let(:type) { 'success' }
+      let(:style) { 'success' }
 
       it {
         is_expected.to have_selector('.badge.bg-success:not(.text-dark)', text: text)
@@ -26,7 +26,7 @@ RSpec.describe Bs5::BadgeComponent, type: :component do
     end
 
     describe 'that has dark text' do
-      let(:type) { 'warning' }
+      let(:style) { 'warning' }
 
       it {
         is_expected.to have_selector('.badge.bg-warning.text-dark', text: text)
@@ -34,7 +34,7 @@ RSpec.describe Bs5::BadgeComponent, type: :component do
     end
 
     describe 'with an invalid type' do
-      let(:type) { 'lorem' }
+      let(:style) { 'lorem' }
 
       it {
         expect do

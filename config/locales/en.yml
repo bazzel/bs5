@@ -1,0 +1,8 @@
+en:
+  activemodel:
+    errors:
+      models:
+        bs5/alert_component:
+          attributes:
+            style:
+              inclusion: "is not included in the list: %{valid_styles}."

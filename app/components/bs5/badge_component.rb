@@ -2,19 +2,14 @@
 
 module Bs5
   class BadgeComponent < ViewComponent::Base
-    TYPES = %i[primary secondary success danger warning info light dark].freeze
+    attr_reader :text, :style
 
     include ActiveModel::Validations
+    validates :style, style: true
 
-    attr_reader :text, :type
-
-    validates :type, inclusion: { in: TYPES, message: lambda do |_, data|
-      "#{data[:value].inspect} is not valid. Try #{TYPES.to_sentence(last_word_connector: ' or ')}."
-    end }
-
-    def initialize(text:, type: :secondary, pill: false)
+    def initialize(text:, style: :secondary, pill: false)
       @text = text
-      @type = type.to_sym
+      @style = style.to_sym
       @pill = pill
     end
 
@@ -35,8 +30,8 @@ module Bs5
     end
 
     def contextual_class
-      class_names = ["bg-#{@type}"]
-      class_names << %w[text-dark] if type.in?(%i[warning info light])
+      class_names = ["bg-#{@style}"]
+      class_names << %w[text-dark] if style.in?(%i[warning info light])
       class_names.join(' ')
     end
   end
