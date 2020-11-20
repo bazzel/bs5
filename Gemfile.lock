@@ -3,6 +3,7 @@ PATH
   specs:
     bs5 (0.0.5)
       rails (~> 6.0.3, >= 6.0.3.4)
+      rouge (~> 3.25.0)
       view_component (~> 2.22.0)
 
 GEM
@@ -65,6 +66,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    bindex (0.8.1)
     builder (3.2.4)
     capybara (3.33.0)
       addressable
@@ -129,6 +131,7 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rake (13.0.1)
     regexp_parser (1.8.2)
+    rouge (3.25.0)
     rspec-core (3.10.0)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.0)
@@ -160,6 +163,11 @@ GEM
       thread_safe (~> 0.1)
     view_component (2.22.1)
       activesupport (>= 5.0.0, < 7.0)
+    web-console (4.1.0)
+      actionview (>= 6.0.0)
+      activemodel (>= 6.0.0)
+      bindex (>= 0.4.0)
+      railties (>= 6.0.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -175,6 +183,7 @@ DEPENDENCIES
   capybara (~> 3.33)
   rspec-rails (~> 4.0.1)
   sqlite3
+  web-console
 
 BUNDLED WITH
    1.17.2

@@ -20,6 +20,12 @@ class Bs5::InstallGenerator < Rails::Generators::Base
       HEREDOC
     end
 
+    inject_into_file 'config/routes.rb', after: "Rails.application.routes.draw do\n" do
+      <<~HEREDOC
+        mount Bs5::Engine => '/bs5'
+      HEREDOC
+    end
+
     append_file 'app/javascript/packs/application.js', <<~HEREDOC
       import "bootstrap";
     HEREDOC
