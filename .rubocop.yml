@@ -1,0 +1,17 @@
+inherit_from: .rubocop_todo.yml
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+
+Layout/LineLength:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+
+Lint/MissingSuper:
+  Exclude:
+    - "app/components/bs5/**/*.rb"

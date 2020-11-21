@@ -17,7 +17,7 @@ module Bs5
     def highlight
       formatter = Rouge::Formatters::HTML.new
       lexer = Rouge::Lexer.find(language)
-      raw formatter.format(lexer.lex(file_content))
+      formatter.format(lexer.lex(file_content)).html_safe # rubocop:disable Rails/OutputSafety
     end
 
     private
