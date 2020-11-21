@@ -3,6 +3,8 @@ rvm:
   - 2.6.6
 install:
   - bundle install --jobs 3 --retry 3
+  - RAILS_ENV=test bin/rails db:create
+  - RAILS_ENV=test bin/rails db:migrate
 script:
   - bin/rails ci
 cache:
