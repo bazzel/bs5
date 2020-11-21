@@ -26,6 +26,6 @@ addons:
   firefox: latest
 branches:
   only:
-    - master
+    - main
     - develop
     - /^feature\/.+$/
