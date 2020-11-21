@@ -3,6 +3,8 @@ require: rubocop-rails
 
 AllCops:
   NewCops: enable
+  Exclude:
+    - "dummy/**/*"
 
 Layout/LineLength:
   Exclude:
