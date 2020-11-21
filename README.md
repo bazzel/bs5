@@ -2,7 +2,7 @@
 
 This is a Ruby on Rails engine to include [Bootstrap 5](https://v5.getbootstrap.com/).
 
-[![Gem Version](https://badge.fury.io/rb/bs5.svg)](https://badge.fury.io/rb/bs5) [![Build Status](https://travis-ci.org/bazzel/bs5.svg?branch=main)](https://travis-ci.org/bazzel/bs5)
+[![Gem Version](https://badge.fury.io/rb/bs5.svg)](https://badge.fury.io/rb/bs5) [![Build Status](https://travis-ci.org/bazzel/bs5.svg?branch=main)](https://travis-ci.org/bazzel/bs5) [![Ruby Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rubystyle.guide)
 
 ## Usage
 
