@@ -21,5 +21,11 @@ module Bs5
     def bs5_close_button(*args)
       render CloseButtonComponent.new(*args)
     end
+
+    def bs5_breadcrumb(*args)
+      render BreadcrumbComponent.new(*args) do |breadcrumb|
+        yield breadcrumb if block_given?
+      end
+    end
   end
 end
