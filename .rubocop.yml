@@ -4,8 +4,16 @@ require: rubocop-rails
 AllCops:
   NewCops: enable
   Exclude:
-    - "spec/**/*"
+    - "config/definitions.rb"
 
 Lint/MissingSuper:
   Exclude:
     - "app/components/bs5/**/*.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+
+Layout/LineLength:
+  Exclude:
+    - "spec/**/*"

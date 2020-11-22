@@ -1,0 +1,15 @@
+<%= bs5_button_tag %>
+
+<%= bs5_button_tag 'Reset', type: 'reset' %>
+
+<%= bs5_button_tag 'Button', type: 'button' %>
+
+<%= bs5_button_tag 'Reset', type: 'reset', disabled: true %>
+
+<%= bs5_button_tag(type: 'button') do %>
+  <%= content_tag(:strong, 'Ask me!') %>
+<% end %>
+
+<%= bs5_button_tag 'Save', data: { confirm: 'Are you sure?' } %>
+
+<%= bs5_button_tag 'Checkout', data: { disable_with: 'Please wait...' } %>
