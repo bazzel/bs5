@@ -4,14 +4,6 @@ require: rubocop-rails
 AllCops:
   NewCops: enable
   Exclude:
-    - "spec/dummy/**/*"
-
-Layout/LineLength:
-  Exclude:
-    - "spec/**/*"
-
-Metrics/BlockLength:
-  Exclude:
     - "spec/**/*"
 
 Lint/MissingSuper:
