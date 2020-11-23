@@ -5,7 +5,7 @@ AllCops:
   NewCops: enable
   Exclude:
     - "config/definitions.rb"
-    - "spec/dummy**/*"
+    - "spec/dummy/**/*"
 
 Lint/MissingSuper:
   Exclude:
