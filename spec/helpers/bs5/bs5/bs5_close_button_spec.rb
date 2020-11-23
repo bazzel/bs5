@@ -4,7 +4,7 @@ require 'rails_helper'
 
 module Bs5
   RSpec.describe ComponentsHelper, type: :helper do
-    describe 'bs5_accordion' do
+    describe '#bs5_close_button' do
       subject { helper.bs5_close_button(options) }
 
       describe 'markup' do

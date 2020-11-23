@@ -4,7 +4,7 @@ require 'rails_helper'
 
 module Bs5
   RSpec.describe ComponentsHelper, type: :helper do
-    describe 'bs5_alert' do
+    describe '#bs5_alert' do
       subject { helper.bs5_alert(options) { 'Hello world!' } }
 
       let(:options) { {} }

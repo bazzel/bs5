@@ -4,7 +4,7 @@ require 'rails_helper'
 
 module Bs5
   RSpec.describe ComponentsHelper, type: :helper do
-    describe 'bs5_breadcrumb' do
+    describe '#bs5_breadcrumb' do
       subject do
         helper.bs5_breadcrumb do |breadcrumb|
           breadcrumb.slot(:item) { '<a href="#">Home</a>' }

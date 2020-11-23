@@ -4,7 +4,7 @@ require 'rails_helper'
 
 module Bs5
   RSpec.describe ComponentsHelper, type: :helper do
-    describe 'bs5_badge' do
+    describe '#bs5_badge' do
       subject { helper.bs5_badge(options) }
       let(:options) { { text: text } }
       let(:text) { 'Hello world!' }
