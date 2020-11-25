@@ -6,3 +6,9 @@ en:
           attributes:
             style:
               inclusion: "is not included in the list: %{valid_styles}."
+        bs5/button_tag_component:
+          attributes:
+            style:
+              inclusion: "is not included in the list: %{valid_styles}."
+            size:
+              inclusion: "is not included in the list: %{valid_sizes}."
