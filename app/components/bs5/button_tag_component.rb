@@ -2,18 +2,23 @@
 
 module Bs5
   class ButtonTagComponent < ViewComponent::Base
+    STYLES = %i[primary secondary success danger warning info light dark link].freeze
+
     attr_reader :content_or_options, :options
 
-    def initialize(content_or_options = nil, options = nil)
-      if content_or_options.is_a? Hash
-        with_defaults! content_or_options
-      else
-        options ||= {}
-        with_defaults! options
-      end
+    include ActiveModel::Validations
+    validates :style, style: true
 
-      @content_or_options = content_or_options
-      @options = options
+    def initialize(content_or_options = nil, options = nil)
+      @content_or_options = content_or_options.dup
+      @options = options.dup
+
+      extract_style
+      merge_default_options
+    end
+
+    def before_render
+      raise errors.full_messages.to_sentence if invalid?
     end
 
     def call
@@ -25,14 +30,42 @@ module Bs5
     end
 
     private
-    def with_defaults!(hash)
-      hash.merge! default_options
+
+    def extract_style
+      if @content_or_options.is_a? Hash
+        @style = @content_or_options.delete(:style)
+        @content_or_options = nil if @content_or_options.empty?
+      elsif @options.is_a? Hash
+        @style = @options.delete(:style)
+        @options = nil if @options.empty?
+      end
+    end
+
+    def merge_default_options
+      if @content_or_options.is_a? Hash
+        @content_or_options.merge! default_options
+      else
+        @options ||= {}
+        @options.merge! default_options
+      end
     end
 
     def default_options
       {
-        class: 'btn btn-primary'
+        class: button_class
       }
+    end
+
+    def button_class
+      ['btn', contextual_class]
+    end
+
+    def contextual_class
+      "btn-#{style}"
+    end
+
+    def style
+      (@style || 'primary').to_sym
     end
   end
 end

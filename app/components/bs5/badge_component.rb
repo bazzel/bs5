@@ -2,6 +2,8 @@
 
 module Bs5
   class BadgeComponent < ViewComponent::Base
+    STYLES = %i[primary secondary success danger warning info light dark].freeze
+
     attr_reader :text, :style
 
     include ActiveModel::Validations

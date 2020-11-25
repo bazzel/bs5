@@ -2,6 +2,8 @@
 
 module Bs5
   class AlertComponent < ViewComponent::Base
+    STYLES = %i[primary secondary success danger warning info light dark].freeze
+
     attr_reader :style, :is_dismissable
 
     include ActiveModel::Validations
