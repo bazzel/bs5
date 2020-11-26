@@ -16,3 +16,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add ViewComponent for Breadcrumb component.
 - Add endpoint for examples and code snippets.
 - Add ViewComponent for Close button component.
+- Add ViewComponent for Button component.
