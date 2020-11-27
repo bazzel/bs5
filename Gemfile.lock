@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bs5 (0.0.10)
+    bs5 (0.0.11)
       rails (~> 6.0.3, >= 6.0.3.4)
       rouge (~> 3.25.0)
       rubocop-rails (~> 2.8)

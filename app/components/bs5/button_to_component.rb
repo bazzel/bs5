@@ -1,24 +1,30 @@
 # frozen_string_literal: true
 
 module Bs5
-  class ButtonTagComponent < ViewComponent::Base
+  class ButtonToComponent < ViewComponent::Base
     STYLES = %i[primary secondary success danger warning info light dark link].freeze
     DEFAULT_STYLE = :primary
     SIZES = { small: :sm, large: :lg }.freeze
     CLASS_PREFIX = 'btn'
 
-    attr_reader :content_or_options, :size
+    attr_reader :size
 
     include ActiveModel::Validations
     validates :style, style: true
     validates :size, inclusion: { in: SIZES.keys, valid_sizes: SIZES.keys.to_sentence, allow_nil: true }
 
-    def initialize(content_or_options = nil, options = nil)
-      if content_or_options.is_a? Hash
-        self.options = content_or_options
+    def initialize(name = nil, options = nil, html_options = nil)
+      @name = name
+      @options = options
+      @html_options = html_options
+
+      if @name.is_a? Hash
+        self.button_to_options = @name
+      elsif @options.is_a? Hash
+        self.button_to_options = @options
       else
-        @content_or_options = content_or_options
-        self.options = options
+        @html_options ||= {}
+        self.button_to_options = @html_options
       end
 
       extract_custom_options
@@ -30,17 +36,17 @@ module Bs5
     end
 
     def call
-      button_tag(content || content_or_options, options)
+      if content
+        button_to(@name, @options, @html_options) { content }
+      else
+        button_to(@name, @options, @html_options)
+      end
     end
 
     private
 
-    def options=(value)
-      @options = Hash(value).symbolize_keys!
-    end
-
-    def options
-      @options.empty? ? nil : @options
+    def button_to_options=(hash)
+      @button_to_options = hash.symbolize_keys!
     end
 
     def extract_custom_options
@@ -50,19 +56,19 @@ module Bs5
     end
 
     def extract_style
-      @style = @options.delete(:style)
+      @style = @button_to_options.delete(:style)
     end
 
     def extract_outline
-      @outline = @options.delete(:outline)
+      @outline = @button_to_options.delete(:outline)
     end
 
     def extract_size
-      @size = @options.delete(:size)
+      @size = @button_to_options.delete(:size)
     end
 
     def merge_default_options
-      @options.deep_merge!(default_options) do |_key, this_val, other_val|
+      @button_to_options.deep_merge!(default_options) do |_key, this_val, other_val|
         [this_val, other_val].join(' ').strip
       end
     end

@@ -12,3 +12,9 @@ en:
               inclusion: "is not included in the list: %{valid_styles}."
             size:
               inclusion: "is not included in the list: %{valid_sizes}."
+        bs5/button_to_component:
+          attributes:
+            style:
+              inclusion: "is not included in the list: %{valid_styles}."
+            size:
+              inclusion: "is not included in the list: %{valid_sizes}."
