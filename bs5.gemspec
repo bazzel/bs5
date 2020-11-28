@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.6.6'
 
+  spec.add_dependency 'nokogiri', '~> 1.10.10'
   spec.add_dependency 'rails', '~> 6.0.3', '>= 6.0.3.4'
   spec.add_dependency 'rouge', '~> 3.25.0'
   spec.add_dependency 'rubocop-rails', '~> 2.8'

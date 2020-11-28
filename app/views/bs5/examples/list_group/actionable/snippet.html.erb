@@ -1,0 +1,7 @@
+<%= bs5_list_group do |lg| %>
+  <% lg.slot(:item, active: true) do %><%= link_to 'Cras justo odio', '#' %><% end %>
+  <% lg.slot(:item) do %><%= link_to 'Dapibus ac facilisis in', '#' %><% end %>
+  <% lg.slot(:item) do %><%= link_to 'Morbi leo risus', '#' %><% end %>
+  <% lg.slot(:item) do %><%= link_to 'Porta ac consectetur ac', '#' %><% end %>
+  <% lg.slot(:item, disabled: true) do %><%= link_to 'Vestibulum at eros', '#' %><% end %>
+<%- end %>

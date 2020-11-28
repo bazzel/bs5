@@ -1,0 +1,7 @@
+<%= bs5_list_group do |lg| %>
+  <% lg.slot(:item, active: true) do %><%= button_tag 'Cras justo odio' %><% end %>
+  <% lg.slot(:item) do %><%= button_tag 'Dapibus ac facilisis in' %><% end %>
+  <% lg.slot(:item) do %><%= button_tag 'Morbi leo risus' %><% end %>
+  <% lg.slot(:item) do %><%= button_tag 'Porta ac consectetur ac' %><% end %>
+  <% lg.slot(:item, disabled: true) do %><%= button_tag 'Vestibulum at eros' %><% end %>
+<%- end %>

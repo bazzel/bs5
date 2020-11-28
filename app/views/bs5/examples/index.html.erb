@@ -1,15 +1,16 @@
   <div class="row">
     <div class="col">
       <div class="sticky-top">
-        <ul class="nav flex-column">
-        <li>Accordion</li>
-        <li>Alert</li>
-        <li>Badge</li>
-        <li>Close button</li>
-        <li>Breadcrumb</li>
-        <li>Buttons</li>
-        <li>Tooltips</li>
-        </ul>
+        <%= bs5_list_group(flush: true) do |lg| %>
+          <% lg.slot(:item) do %><%= link_to 'Accordion', '#accordion' %><% end %>
+          <% lg.slot(:item) do %><%= link_to 'Alert', '#alert' %><% end %>
+          <% lg.slot(:item) do %><%= link_to 'Badge', '#badge' %><% end %>
+          <% lg.slot(:item) do %><%= link_to 'Close button', '#close_button' %><% end %>
+          <% lg.slot(:item) do %><%= link_to 'Breadcrumb', '#breadcrumb' %><% end %>
+          <% lg.slot(:item) do %><%= link_to 'Buttons', '#buttons' %><% end %>
+          <% lg.slot(:item) do %><%= link_to 'Tooltips', '#tooltip' %><% end %>
+          <% lg.slot(:item) do %><%= link_to 'List group', '#list_group' %><% end %>
+        <%- end %>
       </div>
     </div>
     <div class="col-10">
@@ -21,5 +22,6 @@
       <%= render 'breadcrumb' %>
       <%= render 'buttons' %>
       <%= render 'tooltips' %>
+      <%= render 'list_group' %>
     </div>
   </div>

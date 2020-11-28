@@ -1,0 +1,20 @@
+<% if items.any? %>
+  <% if actionables? %>
+    <div class="<%= component_class %>">
+      <% items.each do |item| %>
+        <%= item.decorated_content %>
+      <% end %>
+    </div>
+  <% else %>
+    <ul class="<%= component_class %>">
+      <% items.each do |item| %>
+        <li
+          class="<%= item.item_class %>"
+          <%= item.active? ? 'aria-current=true' : '' %>
+          <%= item.disabled? ? 'aria-disabled=true' : '' %>>
+            <%= item.content %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
