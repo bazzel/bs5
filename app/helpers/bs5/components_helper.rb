@@ -11,6 +11,15 @@ module Bs5
       end
     end
 
+    def bs5_tooltip(title, options = nil)
+      default_options = { toggle: :tooltip }
+      options = Hash(options).symbolize_keys.merge(default_options)
+      {
+        title: title,
+        data: options
+      }
+    end
+
     private
 
     def render_component(component_clazz, *args)

@@ -18,15 +18,7 @@ module Bs5
       @options = options
       @html_options = html_options
 
-      if @name.is_a? Hash
-        self.button_to_options = @name
-      elsif @options.is_a? Hash
-        self.button_to_options = @options
-      else
-        @html_options ||= {}
-        self.button_to_options = @html_options
-      end
-
+      set_button_to_options
       extract_custom_options
       merge_default_options
     end
@@ -44,6 +36,17 @@ module Bs5
     end
 
     private
+
+    def set_button_to_options
+      if @name.is_a? Hash
+        self.button_to_options = @name
+      elsif @options.is_a? Hash
+        self.button_to_options = @options
+      else
+        @html_options ||= {}
+        self.button_to_options = @html_options
+      end
+    end
 
     def button_to_options=(hash)
       @button_to_options = hash.symbolize_keys!
