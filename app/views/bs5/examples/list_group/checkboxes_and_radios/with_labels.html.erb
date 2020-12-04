@@ -1,0 +1,32 @@
+<%= bs5_list_group do |lg| %>
+  <% lg.slot(:item) do %>
+    <%= label_tag do %>
+      <%= check_box_tag nil, nil, false, class: 'form-check-input mr-1', aria: { label: '...' } %>
+      Cras justo odio
+    <% end %>
+  <% end %>
+  <% lg.slot(:item) do %>
+    <%= label_tag do %>
+      <%= check_box_tag nil, nil, false, class: 'form-check-input mr-1', aria: { label: '...' } %>
+      Dapibus ac facilisis in
+    <% end %>
+  <% end %>
+  <% lg.slot(:item) do %>
+    <%= label_tag do %>
+      <%= check_box_tag nil, nil, false, class: 'form-check-input mr-1', aria: { label: '...' } %>
+      Morbi leo risus
+    <% end %>
+  <% end %>
+  <% lg.slot(:item) do %>
+    <%= label_tag do %>
+      <%= check_box_tag nil, nil, false, class: 'form-check-input mr-1', aria: { label: '...' } %>
+      Porta ac consectetur ac
+    <% end %>
+  <% end %>
+  <% lg.slot(:item) do %>
+    <%= label_tag do %>
+      <%= check_box_tag nil, nil, false, class: 'form-check-input mr-1', aria: { label: '...' } %>
+      Vestibulum at eros
+    <% end %>
+  <% end %>
+<%- end %>

@@ -53,11 +53,13 @@ module Bs5
               helper.bs5_list_group do |lg|
                 lg.slot(:item) { tag.a('Lorem', href: '#') }
                 lg.slot(:item) { tag.button('Ipsum', type: :button) }
+                lg.slot(:item) { label_tag('name', 'Dolor') }
               end
             end
 
             it { is_expected.to have_selector('div.list-group a.list-group-item.list-group-item-action', text: 'Lorem') }
             it { is_expected.to have_selector('div.list-group button.list-group-item.list-group-item-action', text: 'Ipsum') }
+            it { is_expected.to have_selector('div.list-group label.list-group-item:not(.list-group-item-action)[for="name"]', text: 'Dolor') }
 
             describe 'with `active`' do
               subject do
@@ -84,6 +86,31 @@ module Bs5
               it { is_expected.to have_selector('div.list-group a.list-group-item.list-group-item-action.disabled[tabindex="-1"][aria-disabled="true"]', text: 'Lorem') }
               it { is_expected.to have_selector('div.list-group button.list-group-item.list-group-item-action[disabled]', text: 'Ipsum') }
             end
+
+            describe 'with `style`' do
+              subject do
+                helper.bs5_list_group do |lg|
+                  lg.slot(:item, style: :primary) { tag.a('Lorem', href: '#') }
+                  lg.slot(:item, style: :warning) { tag.button('Ipsum', type: :button) }
+                end
+              end
+
+              it { is_expected.to have_selector('div.list-group a.list-group-item.list-group-item-action.list-group-item-primary', text: 'Lorem') }
+              it { is_expected.to have_selector('div.list-group button.list-group-item.list-group-item-action.list-group-item-warning', text: 'Ipsum') }
+            end
+          end
+
+          describe 'with `style`' do
+            subject do
+              helper.bs5_list_group do |lg|
+                lg.slot(:item, style: :primary) { 'Lorem' }
+                lg.slot(:item, style: :warning) { 'Ipsum' }
+              end
+
+              it { is_expected.to have_selector('ul.list-group li.list-group-item.list-group-item-primary', text: 'Lorem') }
+              it { is_expected.to have_selector('ul.list-group li.list-group-item.list-group-item-warning', text: 'Ipsum') }
+            end
+
           end
         end
       end

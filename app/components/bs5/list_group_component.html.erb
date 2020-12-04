@@ -8,12 +8,9 @@
   <% else %>
     <ul class="<%= component_class %>">
       <% items.each do |item| %>
-        <li
-          class="<%= item.item_class %>"
-          <%= item.active? ? 'aria-current=true' : '' %>
-          <%= item.disabled? ? 'aria-disabled=true' : '' %>>
-            <%= item.content %>
-        </li>
+        <%= tag.li(**item.item_attributes) do %>
+          <%= item.content %>
+        <% end %>
       <% end %>
     </ul>
   <% end %>
