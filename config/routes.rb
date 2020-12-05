@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Bs5::Engine.routes.draw do
-  get 'examples/index'
+  get 'pages/:page', to: 'pages#show', as: :pages
 
-  root to: 'examples#index'
+  root to: 'pages#show', page: 'accordion'
 end

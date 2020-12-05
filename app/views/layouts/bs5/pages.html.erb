@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bs5</title>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <style><%= Rouge::Themes::Github.render(scope: '.highlight') %></style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="sticky-top">
+          <%= bs5_list_group(flush: true) do |lg| %>
+            <% lg.slot(:item, active: current_page?(pages_path('accordion'))) do %><%= link_to 'Accordion', pages_path('accordion') %><% end %>
+            <% lg.slot(:item, active: current_page?(pages_path('alert'))) do %><%= link_to 'Alert', pages_path('alert') %><% end %>
+            <% lg.slot(:item, active: current_page?(pages_path('badge'))) do %><%= link_to 'Badge', pages_path('badge') %><% end %>
+            <% lg.slot(:item, active: current_page?(pages_path('breadcrumb'))) do %><%= link_to 'Breadcrumb', pages_path('breadcrumb') %><% end %>
+            <% lg.slot(:item, active: current_page?(pages_path('buttons'))) do %><%= link_to 'Buttons', pages_path('buttons') %><% end %>
+            <% lg.slot(:item, active: current_page?(pages_path('close_button'))) do %><%= link_to 'Close button', pages_path('close_button') %><% end %>
+            <% lg.slot(:item, active: current_page?(pages_path('list_group'))) do %><%= link_to 'List group', pages_path('list_group') %><% end %>
+            <% lg.slot(:item, active: current_page?(pages_path('tooltips'))) do %><%= link_to 'Tooltips', pages_path('tooltips') %><% end %>
+          <%- end %>
+        </div>
+      </div>
+      <div class="col-10">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
