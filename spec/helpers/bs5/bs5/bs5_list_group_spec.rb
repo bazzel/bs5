@@ -110,7 +110,6 @@ module Bs5
               it { is_expected.to have_selector('ul.list-group li.list-group-item.list-group-item-primary', text: 'Lorem') }
               it { is_expected.to have_selector('ul.list-group li.list-group-item.list-group-item-warning', text: 'Ipsum') }
             end
-
           end
         end
       end

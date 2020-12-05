@@ -25,48 +25,20 @@ module Bs5
     end
 
     class Item < ViewComponent::Slot
-      def initialize(options={})
+      attr_reader :options
+
+      def initialize(options = {})
         @options = options.symbolize_keys
 
         @active = @options.delete(:active) || false
         @disabled = @options.delete(:disabled) || false
         @style = @options.delete(:style)
 
-        set_classnames
-      end
-
-      def active?
-        !!@active
-      end
-
-      def disabled?
-        !!@disabled
+        set_attributes
       end
 
       def actionable?
         !!actionable_element
-      end
-
-      def item_class
-        class_names = ['list-group-item']
-        class_names << 'active' if active?
-        class_names << 'disabled' if disabled?
-        class_names << contextual_class if style?
-        class_names#.join(' ')
-      end
-
-      def item_attributes
-        if active?
-          @options[:aria] ||= {}
-          @options[:aria][:current] = true
-        end
-
-        if disabled?
-          @options[:aria] ||= {}
-          @options[:aria][:disabled] = true
-        end
-
-        @options
       end
 
       def actionable_element
@@ -79,49 +51,65 @@ module Bs5
       end
 
       def decorated_content
-        class_names = (actionable_element[:class] || '').split
-        class_names << %w[list-group-item]
-
-        if actionable_element.name.in?(%w[a button])
-          class_names << 'list-group-item-action'
-        end
-
-        class_names << contextual_class if style?
-
-        if active?
-          class_names << 'active'
-          actionable_element['aria-current'] = true
-        end
-
-        if disabled?
-          case actionable_element.name
-          when 'a'
-            class_names << 'disabled'
-            actionable_element['aria-disabled'] = true
-            actionable_element['tabindex'] = -1
-          when 'button'
-            actionable_element['disabled'] = ''
-          end
-        end
-
-        actionable_element[:class] = class_names.join(' ')
-
-        actionable_element.to_html.html_safe
+        set_actionable_element_attributes
+        actionable_element.to_html.html_safe # rubocop:disable Rails/OutputSafety
       end
 
-      def contextual_class
-        "list-group-item-#{@style}"
+      private
+
+      def set_actionable_element_class_names
+        class_names = Array(actionable_element[:class])
+        class_names << item_classes
+        class_names << 'list-group-item-action' if actionable_element.name.in?(%w[a button])
+        actionable_element[:class] = class_names.join(' ')
+      end
+
+      def set_actionable_element_attributes
+        set_actionable_element_class_names
+        actionable_element['aria-current'] = true if active?
+
+        return unless disabled?
+
+        case actionable_element.name
+        when 'a'
+          actionable_element['aria-disabled'] = true
+          actionable_element['tabindex'] = -1
+        when 'button'
+          actionable_element['disabled'] = ''
+        end
+      end
+
+      def set_attributes
+        @options[:class] = Array(@options[:class])
+        @options[:class] << item_classes
+        @options[:aria] ||= {}
+        @options[:aria][:current] = true if active?
+        @options[:aria][:disabled] = true if disabled?
+      end
+
+      def item_classes
+        class_names = %w[list-group-item]
+        class_names << 'active' if active?
+        class_names << 'disabled' if disabled?
+        class_names << contextual_class if style?
+
+        class_names
+      end
+
+      def active?
+        !!@active
+      end
+
+      def disabled?
+        !!@disabled
       end
 
       def style?
         !!@style
       end
 
-      def set_classnames
-        classnames = String(@options[:class]).split
-        classnames += item_class
-
-        @options[:class] = classnames.join(' ')
+      def contextual_class
+        "list-group-item-#{@style}"
       end
     end
   end

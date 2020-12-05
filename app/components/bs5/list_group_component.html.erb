@@ -8,7 +8,7 @@
   <% else %>
     <ul class="<%= component_class %>">
       <% items.each do |item| %>
-        <%= tag.li(**item.item_attributes) do %>
+        <%= tag.li(**item.options) do %>
           <%= item.content %>
         <% end %>
       <% end %>
