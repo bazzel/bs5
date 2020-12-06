@@ -2,13 +2,20 @@
 
 module Bs5
   class ListGroupComponent < ViewComponent::Base
+    CLASS_NAME_BASE = 'list-group'
+    CLASS_NAME_FLUSH = "#{CLASS_NAME_BASE}-flush"
+    CLASS_NAME_HORIZONTAL = "#{CLASS_NAME_BASE}-horizontal"
+
     include ViewComponent::Slotable
 
     with_slot :item, collection: true, class_name: 'Item'
 
-    def initialize(flush: false)
+    def initialize(flush: false, horizontal: false)
       @flush = flush
+      @horizontal = horizontal
     end
+
+    private
 
     def flush?
       !!@flush
@@ -18,13 +25,33 @@ module Bs5
       items.any?(&:actionable?)
     end
 
+    def horizontal?
+      !!@horizontal
+    end
+
     def component_class
-      class_names = ['list-group']
-      class_names << 'list-group-flush' if flush?
+      class_names = [CLASS_NAME_BASE]
+      class_names << flush_class
+      class_names << horizontal_class
       class_names.join(' ')
     end
 
+    def flush_class
+      CLASS_NAME_FLUSH if flush?
+    end
+
+    def horizontal_class
+      return unless horizontal?
+
+      class_names = [CLASS_NAME_HORIZONTAL]
+      class_names << @horizontal if @horizontal.in?(%i[sm md lg xl xxl])
+      class_names.join('-')
+    end
+
     class Item < ViewComponent::Slot
+      CLASS_NAME_BASE = 'list-group-item'
+      CLASS_NAME_ACTION = "#{CLASS_NAME_BASE}-action"
+
       attr_reader :options
 
       def initialize(options = {})
@@ -60,7 +87,7 @@ module Bs5
       def set_actionable_element_class_names
         class_names = Array(actionable_element[:class])
         class_names << item_classes
-        class_names << 'list-group-item-action' if actionable_element.name.in?(%w[a button])
+        class_names << CLASS_NAME_ACTION if actionable_element.name.in?(%w[a button])
         actionable_element[:class] = class_names.join(' ')
       end
 
@@ -88,7 +115,7 @@ module Bs5
       end
 
       def item_classes
-        class_names = %w[list-group-item]
+        class_names = [CLASS_NAME_BASE]
         class_names << 'active' if active?
         class_names << 'disabled' if disabled?
         class_names << contextual_class if style?
@@ -109,7 +136,7 @@ module Bs5
       end
 
       def contextual_class
-        "list-group-item-#{@style}"
+        [CLASS_NAME_BASE, @style].join('-')
       end
     end
   end

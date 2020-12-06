@@ -23,6 +23,42 @@ module Bs5
           it { is_expected.to have_selector('ul.list-group.list-group-flush li.list-group-item', count: 2) }
         end
 
+        describe 'with `horizontal`' do
+          describe 'without breakpoint' do
+            let(:options) { { horizontal: true } }
+
+            it { is_expected.to have_selector('ul.list-group.list-group-horizontal li.list-group-item', count: 2) }
+          end
+
+          describe 'with breakpoint' do
+            describe 'sm' do
+              let(:options) { { horizontal: :sm } }
+
+              it { is_expected.to have_selector('ul.list-group.list-group-horizontal-sm li.list-group-item', count: 2) }
+            end
+            describe 'md' do
+              let(:options) { { horizontal: :md } }
+
+              it { is_expected.to have_selector('ul.list-group.list-group-horizontal-md li.list-group-item', count: 2) }
+            end
+            describe 'lg' do
+              let(:options) { { horizontal: :lg } }
+
+              it { is_expected.to have_selector('ul.list-group.list-group-horizontal-lg li.list-group-item', count: 2) }
+            end
+            describe 'xl' do
+              let(:options) { { horizontal: :xl } }
+
+              it { is_expected.to have_selector('ul.list-group.list-group-horizontal-xl li.list-group-item', count: 2) }
+            end
+            describe 'xxl' do
+              let(:options) { { horizontal: :xxl } }
+
+              it { is_expected.to have_selector('ul.list-group.list-group-horizontal-xxl li.list-group-item', count: 2) }
+            end
+          end
+        end
+
         describe 'items' do
           describe 'with `active`' do
             subject do
