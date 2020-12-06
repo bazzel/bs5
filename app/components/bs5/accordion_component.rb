@@ -2,6 +2,7 @@
 
 module Bs5
   class AccordionComponent < ViewComponent::Base
+    include ComponentsHelper
     include ViewComponent::Slotable
 
     with_slot :item, collection: true, class_name: 'Item'

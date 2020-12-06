@@ -1,6 +1,6 @@
 <p>
   <%= link_to 'Link with href', '#collapseExample', bs5_collapse(controls: 'collapseExample').merge(class: 'btn btn-primary', role: :button) %>
-  <%= bs5_button_tag 'Button with data-target', bs5_collapse(target: '#collapseExample') %>
+  <%= bs5_button_tag 'Button with data-target', bs5_collapse(target: '#collapseExample').merge(type: :button) %>
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">

@@ -6,16 +6,9 @@
           id="<%= item.header_id %>"
           class="accordion-header"
         >
-          <button
-            class="<%= item.button_class %>"
-            type="button"
-            data-toggle="collapse"
-            data-target="#<%= item.collapse_id %>"
-            aria-expanded="true"
-            aria-controls="<%= item.collapse_id %>"
-          >
-              <%= item.title %>
-          </button>
+          <%= button_tag item.title,
+              bs5_collapse(target: "##{item.collapse_id}", expanded: !item.collapsed?)
+                .merge(type: :button, class: item.button_class) %>
         </h2>
         <div
           id="<%= item.collapse_id %>"

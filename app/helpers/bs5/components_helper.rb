@@ -20,24 +20,8 @@ module Bs5
       }
     end
 
-    def bs5_collapse(expanded: false, target: nil, controls: nil)
-      data_options = { toggle: :collapse }
-      data_options[:target] = target if target
-
-      aria_options = { expanded: expanded }
-
-      if controls
-        aria_options[:controls] = controls
-      elsif target&.start_with?('#')
-        aria_options[:controls] = target.delete_prefix('#')
-      else
-        raise 'Please provide a controls option.'
-      end
-
-      {
-        data: data_options,
-        aria: aria_options
-      }
+    def bs5_collapse(*args)
+      CollapseService.new(*args).to_hash
     end
 
     private

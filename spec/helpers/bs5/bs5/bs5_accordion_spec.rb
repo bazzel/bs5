@@ -21,7 +21,7 @@ module Bs5
         describe 'header' do
           it { is_expected.to have_selector('.accordion .accordion-item .accordion-header[id^="header-"]') }
           it { is_expected.to have_selector('.accordion .accordion-item .accordion-header button.accordion-button:not(.collapsed)[type="button"][data-toggle="collapse"][data-target^="#collapse-"][aria-expanded="true"][aria-controls^="collapse-"]', text: 'Foo') }
-          it { is_expected.to have_selector('.accordion .accordion-item .accordion-header button.accordion-button.collapsed[type="button"][data-toggle="collapse"][data-target^="#collapse-"][aria-expanded="true"][aria-controls^="collapse-"]', text: 'Bar') }
+          it { is_expected.to have_selector('.accordion .accordion-item .accordion-header button.accordion-button.collapsed[type="button"][data-toggle="collapse"][data-target^="#collapse-"][aria-expanded="false"][aria-controls^="collapse-"]', text: 'Bar') }
         end
 
         describe 'body' do
