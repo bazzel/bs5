@@ -19,3 +19,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add ViewComponent for Button component.
 - Add ViewComponent for List group component.
 - Add viewhelper for tooltip.
+- Add viewhelper for collapse.
