@@ -1,0 +1,21 @@
+<p>
+  <%= link_to 'Toggle first element', '#multiCollapseExample1', bs5_collapse(controls: 'multiCollapseExample1 multiCollapseExample2').merge(class: 'btn btn-primary', role: :button) %>
+  <%= bs5_button_tag 'Toggle second element', bs5_collapse(target: '#multiCollapseExample2', controls: 'multiCollapseExample1 multiCollapseExample2') %>
+  <%= bs5_button_tag 'Toggle both elements', bs5_collapse(target: '.multi-collapse', controls: 'multiCollapseExample1 multiCollapseExample2') %>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+</div>

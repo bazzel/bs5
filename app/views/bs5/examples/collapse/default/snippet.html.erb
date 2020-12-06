@@ -1,0 +1,9 @@
+<p>
+  <%= link_to 'Link with href', '#collapseExample', bs5_collapse(controls: 'collapseExample').merge(class: 'btn btn-primary', role: :button) %>
+  <%= bs5_button_tag 'Button with data-target', bs5_collapse(target: '#collapseExample') %>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
