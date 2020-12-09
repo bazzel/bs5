@@ -5,7 +5,7 @@ module Bs5
     source_root File.expand_path('templates', __dir__)
 
     def add_bootstrap # rubocop:disable Metrics/MethodLength
-      run 'yarn add bootstrap@next popper.js'
+      run 'yarn add bootstrap@next @popperjs/core'
 
       create_file 'app/javascript/packs/styles.scss', <<~HEREDOC
         @import "~bootstrap/scss/bootstrap";
@@ -24,6 +24,7 @@ module Bs5
       inject_into_file 'app/views/layouts/application.html.erb', before: '</head>' do
         <<~HEREDOC
           <%= stylesheet_pack_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
         HEREDOC
       end
 

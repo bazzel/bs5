@@ -32,7 +32,7 @@ $ gem install bs5
 
 Run the following command to setup your project to use Bootstrap 5.
 
-    $ rails generate bs5:install
+    $ bin/rails generate bs5:install
 
 ## Contributing
 

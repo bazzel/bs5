@@ -41,7 +41,7 @@ module Bs5
         let(:options) { { is_dismissable: true } }
 
         it {
-          is_expected.to have_selector('.alert.alert-dismissible.fade.show button.btn-close[type="button"][data-dismiss="alert"][aria-label="Close"]')
+          is_expected.to have_selector('.alert.alert-dismissible.fade.show button.btn-close[type="button"][data-bs-dismiss="alert"][aria-label="Close"]')
         }
       end
 

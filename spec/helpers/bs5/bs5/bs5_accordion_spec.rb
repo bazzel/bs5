@@ -20,13 +20,13 @@ module Bs5
       describe 'item' do
         describe 'header' do
           it { is_expected.to have_selector('.accordion .accordion-item .accordion-header[id^="header-"]') }
-          it { is_expected.to have_selector('.accordion .accordion-item .accordion-header button.accordion-button:not(.collapsed)[type="button"][data-toggle="collapse"][data-target^="#collapse-"][aria-expanded="true"][aria-controls^="collapse-"]', text: 'Foo') }
-          it { is_expected.to have_selector('.accordion .accordion-item .accordion-header button.accordion-button.collapsed[type="button"][data-toggle="collapse"][data-target^="#collapse-"][aria-expanded="false"][aria-controls^="collapse-"]', text: 'Bar') }
+          it { is_expected.to have_selector('.accordion .accordion-item .accordion-header button.accordion-button:not(.collapsed)[type="button"][data-bs-toggle="collapse"][data-bs-target^="#collapse-"][aria-expanded="true"][aria-controls^="collapse-"]', text: 'Foo') }
+          it { is_expected.to have_selector('.accordion .accordion-item .accordion-header button.accordion-button.collapsed[type="button"][data-bs-toggle="collapse"][data-bs-target^="#collapse-"][aria-expanded="false"][aria-controls^="collapse-"]', text: 'Bar') }
         end
 
         describe 'body' do
-          it { is_expected.to have_selector('.accordion .accordion-item .accordion-collapse.collapse.show[id^="collapse-"][aria-labelledby^="header-"][data-parent^="#accordion-"] .accordion-body', text: 'Lorem Ipsum') }
-          it { is_expected.to have_selector('.accordion .accordion-item .accordion-collapse.collapse:not(.show)[id^="collapse-"][aria-labelledby^="header-"][data-parent^="#accordion-"] .accordion-body', text: 'Dolor Sit') }
+          it { is_expected.to have_selector('.accordion .accordion-item .accordion-collapse.collapse.show[id^="collapse-"][aria-labelledby^="header-"][data-bs-parent^="#accordion-"] .accordion-body', text: 'Lorem Ipsum') }
+          it { is_expected.to have_selector('.accordion .accordion-item .accordion-collapse.collapse:not(.show)[id^="collapse-"][aria-labelledby^="header-"][data-bs-parent^="#accordion-"] .accordion-body', text: 'Dolor Sit') }
         end
       end
 

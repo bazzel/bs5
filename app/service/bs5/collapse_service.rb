@@ -24,8 +24,8 @@ module Bs5
     private
 
     def data_options
-      options = { toggle: :collapse }
-      options[:target] = target if target
+      options = { 'bs-toggle': :collapse }
+      options[:'bs-target'] = target if target
 
       options
     end
