@@ -2,6 +2,8 @@
 
 module Bs5
   class CollapseService
+    using HashRefinement
+
     CONTROLS_ERR_MSG = 'Please provide either a `controls` option' \
                        ' containing the id of the collapsible element' \
                        ' or an ID selector as `target` options.'
@@ -24,10 +26,10 @@ module Bs5
     private
 
     def data_options
-      options = { 'bs-toggle': :collapse }
-      options[:'bs-target'] = target if target
+      options = { toggle: :collapse }
+      options[:target] = target if target
 
-      options
+      options.prefix_keys_with_bs
     end
 
     def aria_options

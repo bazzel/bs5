@@ -9,13 +9,13 @@ module Bs5
       let(:title) { 'my tooltip' }
       let(:options) { {} }
 
-      it { is_expected.to eql({ title: title, data: { toggle: :tooltip } }) }
+      it { is_expected.to eql({ title: title, data: { bs_toggle: :tooltip } }) }
 
       describe 'placement' do
         let(:options) { { placement: placement } }
         let(:placement) { :bottom }
 
-        it { is_expected.to eql({ title: title, data: { toggle: :tooltip, placement: :bottom } }) }
+        it { is_expected.to eql({ title: title, data: { bs_toggle: :tooltip, bs_placement: :bottom } }) }
       end
     end
   end

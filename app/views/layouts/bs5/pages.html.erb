@@ -21,6 +21,7 @@
             <% lg.slot(:item, active: current_page?(pages_path('close_button'))) do %><%= link_to 'Close button', pages_path('close_button') %><% end %>
             <% lg.slot(:item, active: current_page?(pages_path('collapse'))) do %><%= link_to 'Collapse', pages_path('collapse') %><% end %>
             <% lg.slot(:item, active: current_page?(pages_path('list_group'))) do %><%= link_to 'List group', pages_path('list_group') %><% end %>
+            <% lg.slot(:item, active: current_page?(pages_path('popovers'))) do %><%= link_to 'Popovers', pages_path('popovers') %><% end %>
             <% lg.slot(:item, active: current_page?(pages_path('tooltips'))) do %><%= link_to 'Tooltips', pages_path('tooltips') %><% end %>
           <%- end %>
         </div>
