@@ -1,0 +1,27 @@
+<%= bs5_button_toolbar(class: 'mb-3', aria: { label: 'Toolbar with button groups' }) do %>
+  <%= bs5_button_group(class: 'me-2', aria: { label: 'First group' }) do %>
+    <%= bs5_button_tag('1', type: 'button', outline: true, style: :secondary) %>
+    <%= bs5_button_tag('2', type: 'button', outline: true, style: :secondary) %>
+    <%= bs5_button_tag('3', type: 'button', outline: true, style: :secondary) %>
+    <%= bs5_button_tag('4', type: 'button', outline: true, style: :secondary) %>
+  <% end %>
+
+  <div class="input-group">
+    <div class="input-group-text" id="btnGroupAddon">@</div>
+    <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon">
+  </div>
+<% end %>
+
+<%= bs5_button_toolbar(class: 'justify-content-between', aria: { label: 'Toolbar with button groups' }) do %>
+  <%= bs5_button_group(aria: { label: 'First group' }) do %>
+    <%= bs5_button_tag('1', type: 'button', outline: true, style: :secondary) %>
+    <%= bs5_button_tag('2', type: 'button', outline: true, style: :secondary) %>
+    <%= bs5_button_tag('3', type: 'button', outline: true, style: :secondary) %>
+    <%= bs5_button_tag('4', type: 'button', outline: true, style: :secondary) %>
+  <% end %>
+
+  <div class="input-group">
+    <div class="input-group-text" id="btnGroupAddon2">@</div>
+    <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+  </div>
+<% end %>
