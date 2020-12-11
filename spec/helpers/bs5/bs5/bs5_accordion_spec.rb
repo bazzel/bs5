@@ -6,9 +6,9 @@ module Bs5
   RSpec.describe ComponentsHelper, type: :helper do
     describe '#bs5_accordion' do
       subject do
-        helper.bs5_accordion(options) do |accordion|
-          accordion.slot(:item, title: 'Foo', collapsed: false) { 'Lorem Ipsum' }
-          accordion.slot(:item, title: 'Bar') { 'Dolor Sit' }
+        helper.bs5_accordion(options) do |a|
+          a.item(title: 'Foo', collapsed: false) { 'Lorem Ipsum' }
+          a.item(title: 'Bar') { 'Dolor Sit' }
         end
       end
 

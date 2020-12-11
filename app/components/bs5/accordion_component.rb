@@ -3,9 +3,9 @@
 module Bs5
   class AccordionComponent < ViewComponent::Base
     include ComponentsHelper
-    include ViewComponent::Slotable
+    include ViewComponent::SlotableV2
 
-    with_slot :item, collection: true, class_name: 'Item'
+    renders_many :items, 'ItemComponent'
 
     def initialize(flush: false)
       @flush = flush
@@ -25,12 +25,16 @@ module Bs5
       class_names.join(' ')
     end
 
-    class Item < ViewComponent::Slot
+    class ItemComponent < ViewComponent::Base
       attr_reader :title
 
       def initialize(title:, collapsed: true)
         @title = title
         @collapsed = collapsed
+      end
+
+      def call
+        content
       end
 
       def id
