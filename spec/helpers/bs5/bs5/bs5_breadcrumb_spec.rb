@@ -6,9 +6,9 @@ module Bs5
   RSpec.describe ComponentsHelper, type: :helper do
     describe '#bs5_breadcrumb' do
       subject do
-        helper.bs5_breadcrumb do |breadcrumb|
-          breadcrumb.slot(:item) { '<a href="#">Home</a>' }
-          breadcrumb.slot(:item) { 'Library' }
+        helper.bs5_breadcrumb do |b|
+          b.item { '<a href="#">Home</a>' }
+          b.item { 'Library' }
         end
       end
 

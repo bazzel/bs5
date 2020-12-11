@@ -1,14 +1,14 @@
-<%= bs5_breadcrumb do |breadcrumb| %>
-  <% breadcrumb.slot(:item) do %>Home<% end %>
+<%= bs5_breadcrumb do |b| %>
+  <% b.item do %>Home<% end %>
 <%- end %>
 
-<%= bs5_breadcrumb do |breadcrumb| %>
-  <% breadcrumb.slot(:item) do %><a href="#">Home</a><% end %>
-  <% breadcrumb.slot(:item) do %>Library<% end %>
+<%= bs5_breadcrumb do |b| %>
+  <% b.item do %><a href="#">Home</a><% end %>
+  <% b.item do %>Library<% end %>
 <%- end %>
 
-<%= bs5_breadcrumb do |breadcrumb| %>
-  <% breadcrumb.slot(:item) do %><a href="#">Home</a><% end %>
-  <% breadcrumb.slot(:item) do %><a href="#">Library</a><% end %>
-  <% breadcrumb.slot(:item) do %>Data<% end %>
+<%= bs5_breadcrumb do |b| %>
+  <% b.item do %><a href="#">Home</a><% end %>
+  <% b.item do %><a href="#">Library</a><% end %>
+  <% b.item do %>Data<% end %>
 <%- end %>

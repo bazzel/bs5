@@ -2,7 +2,7 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <% items.each do |item| %>
-        <li class="breadcrumb-item <%= item == items.last ? 'active' : '' %>" <%= item == items.last ? 'aria-current=page' : '' %>><%= item.content %></li>
+        <li class="breadcrumb-item <%= item == items.last ? 'active' : '' %>" <%= item == items.last ? 'aria-current=page' : '' %>><%= item %></li>
       <% end %>
     </ol>
   </nav>

@@ -2,11 +2,14 @@
 
 module Bs5
   class BreadcrumbComponent < ViewComponent::Base
-    include ViewComponent::Slotable
+    include ViewComponent::SlotableV2
 
-    with_slot :item, collection: true, class_name: 'Item'
+    renders_many :items, 'ItemComponent'
 
-    class Item < ViewComponent::Slot
+    class ItemComponent < ViewComponent::Base
+      def call
+        content
+      end
     end
   end
 end
