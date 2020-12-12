@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-return unless RuboCop
+return unless defined?(RuboCop)
 
 require 'rubocop/rake_task'
 
