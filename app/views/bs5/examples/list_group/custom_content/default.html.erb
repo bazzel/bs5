@@ -1,5 +1,5 @@
 <%= bs5_list_group do |lg| %>
-  <% lg.slot(:item, active: true) do %>
+  <% lg.item(active: true) do %>
     <%= link_to '#' do %>
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">List group item heading</h5>
@@ -9,7 +9,7 @@
       <small>Donec id elit non mi porta.</small>
     <% end %>
   <% end %>
-  <% lg.slot(:item) do %>
+  <% lg.item do %>
     <%= link_to '#' do %>
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">List group item heading</h5>
@@ -19,7 +19,7 @@
       <small class="text-muted">Donec id elit non mi porta.</small>
     <% end %>
   <% end %>
-  <% lg.slot(:item) do %>
+  <% lg.item do %>
     <%= link_to '#' do %>
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">List group item heading</h5>

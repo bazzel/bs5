@@ -6,9 +6,9 @@ module Bs5
     CLASS_NAME_FLUSH = "#{CLASS_NAME_BASE}-flush"
     CLASS_NAME_HORIZONTAL = "#{CLASS_NAME_BASE}-horizontal"
 
-    include ViewComponent::Slotable
+    include ViewComponent::SlotableV2
 
-    with_slot :item, collection: true, class_name: 'Item'
+    renders_many :items, 'Item'
 
     def initialize(flush: false, horizontal: false)
       @flush = flush
@@ -22,7 +22,10 @@ module Bs5
     end
 
     def actionables?
-      items.any?(&:actionable?)
+      items.any? do |item|
+        elements = Nokogiri::HTML::DocumentFragment.parse(item.to_s).elements
+        elements.one? && elements.first.name.in?(%w[a button label])
+      end
     end
 
     def horizontal?
@@ -48,7 +51,7 @@ module Bs5
       class_names.join('-')
     end
 
-    class Item < ViewComponent::Slot
+    class Item < ViewComponent::Base
       CLASS_NAME_BASE = 'list-group-item'
       CLASS_NAME_ACTION = "#{CLASS_NAME_BASE}-action"
 
@@ -62,6 +65,10 @@ module Bs5
         @style = @options.delete(:style)
 
         set_attributes
+      end
+
+      def call
+        actionable? ? decorated_content : content
       end
 
       def actionable?

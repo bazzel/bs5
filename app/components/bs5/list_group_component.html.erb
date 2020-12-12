@@ -2,14 +2,14 @@
   <% if actionables? %>
     <div class="<%= component_class %>">
       <% items.each do |item| %>
-        <%= item.decorated_content %>
+        <%= item %>
       <% end %>
     </div>
   <% else %>
     <ul class="<%= component_class %>">
       <% items.each do |item| %>
         <%= tag.li(**item.options) do %>
-          <%= item.content %>
+          <%= item %>
         <% end %>
       <% end %>
     </ul>

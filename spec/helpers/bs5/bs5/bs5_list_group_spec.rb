@@ -7,8 +7,8 @@ module Bs5
     describe '#bs5_list_group' do
       subject do
         helper.bs5_list_group(options) do |lg|
-          lg.slot(:item) { 'Lorem' }
-          lg.slot(:item) { 'Ipsum' }
+          lg.item { 'Lorem' }
+          lg.item { 'Ipsum' }
         end
       end
 
@@ -63,8 +63,8 @@ module Bs5
           describe 'with `active`' do
             subject do
               helper.bs5_list_group do |lg|
-                lg.slot(:item) { 'Lorem' }
-                lg.slot(:item, active: true) { 'Ipsum' }
+                lg.item { 'Lorem' }
+                lg.item(active: true) { 'Ipsum' }
               end
             end
 
@@ -75,8 +75,8 @@ module Bs5
           describe 'with `disabled`' do
             subject do
               helper.bs5_list_group do |lg|
-                lg.slot(:item) { 'Lorem' }
-                lg.slot(:item, disabled: true) { 'Ipsum' }
+                lg.item { 'Lorem' }
+                lg.item(disabled: true) { 'Ipsum' }
               end
             end
 
@@ -87,9 +87,9 @@ module Bs5
           describe 'actionables' do
             subject do
               helper.bs5_list_group do |lg|
-                lg.slot(:item) { tag.a('Lorem', href: '#') }
-                lg.slot(:item) { tag.button('Ipsum', type: :button) }
-                lg.slot(:item) { label_tag('name', 'Dolor') }
+                lg.item { tag.a('Lorem', href: '#') }
+                lg.item { tag.button('Ipsum', type: :button) }
+                lg.item { label_tag('name', 'Dolor') }
               end
             end
 
@@ -100,9 +100,9 @@ module Bs5
             describe 'with `active`' do
               subject do
                 helper.bs5_list_group do |lg|
-                  lg.slot(:item, active: true) { tag.a('Lorem', href: '#') }
-                  lg.slot(:item) { tag.button('Ipsum', type: :button) }
-                  lg.slot(:item) { tag.a('Dolor', href: '#', class: 'active') }
+                  lg.item(active: true) { tag.a('Lorem', href: '#') }
+                  lg.item { tag.button('Ipsum', type: :button) }
+                  lg.item { tag.a('Dolor', href: '#', class: 'active') }
                 end
               end
 
@@ -114,8 +114,8 @@ module Bs5
             describe 'with `disabled`' do
               subject do
                 helper.bs5_list_group do |lg|
-                  lg.slot(:item, disabled: true) { tag.a('Lorem', href: '#') }
-                  lg.slot(:item, disabled: true) { tag.button('Ipsum', type: :button) }
+                  lg.item(disabled: true) { tag.a('Lorem', href: '#') }
+                  lg.item(disabled: true) { tag.button('Ipsum', type: :button) }
                 end
               end
 
@@ -126,8 +126,8 @@ module Bs5
             describe 'with `style`' do
               subject do
                 helper.bs5_list_group do |lg|
-                  lg.slot(:item, style: :primary) { tag.a('Lorem', href: '#') }
-                  lg.slot(:item, style: :warning) { tag.button('Ipsum', type: :button) }
+                  lg.item(style: :primary) { tag.a('Lorem', href: '#') }
+                  lg.item(style: :warning) { tag.button('Ipsum', type: :button) }
                 end
               end
 
@@ -139,8 +139,8 @@ module Bs5
           describe 'with `style`' do
             subject do
               helper.bs5_list_group do |lg|
-                lg.slot(:item, style: :primary) { 'Lorem' }
-                lg.slot(:item, style: :warning) { 'Ipsum' }
+                lg.item(style: :primary) { 'Lorem' }
+                lg.item(style: :warning) { 'Ipsum' }
               end
 
               it { is_expected.to have_selector('ul.list-group li.list-group-item.list-group-item-primary', text: 'Lorem') }
