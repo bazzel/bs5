@@ -4,14 +4,14 @@ module Bs5
   class BadgeComponent < ViewComponent::Base
     STYLES = %i[primary secondary success danger warning info light dark].freeze
 
-    attr_reader :text, :style
+    attr_reader :text, :color
 
     include ActiveModel::Validations
-    validates :style, style: true
+    validates :color, style: true
 
-    def initialize(text:, style: :secondary, pill: false)
+    def initialize(text:, color: :secondary, pill: false)
       @text = text
-      @style = style.to_sym
+      @color = color.to_sym
       @pill = pill
     end
 
@@ -32,8 +32,8 @@ module Bs5
     end
 
     def contextual_class
-      class_names = ["bg-#{@style}"]
-      class_names << %w[text-dark] if style.in?(%i[warning info light])
+      class_names = ["bg-#{@color}"]
+      class_names << %w[text-dark] if color.in?(%i[warning info light])
       class_names.join(' ')
     end
   end

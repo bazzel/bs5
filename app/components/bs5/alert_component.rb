@@ -4,13 +4,13 @@ module Bs5
   class AlertComponent < ViewComponent::Base
     STYLES = %i[primary secondary success danger warning info light dark].freeze
 
-    attr_reader :style, :is_dismissable
+    attr_reader :color, :is_dismissable
 
     include ActiveModel::Validations
-    validates :style, style: true
+    validates :color, style: true
 
-    def initialize(style: :primary, is_dismissable: false)
-      @style = style.to_sym
+    def initialize(color: :primary, is_dismissable: false)
+      @color = color.to_sym
       @is_dismissable = is_dismissable
     end
 
@@ -31,7 +31,7 @@ module Bs5
     end
 
     def contextual_class
-      "alert-#{@style}"
+      "alert-#{@color}"
     end
   end
 end

@@ -1,11 +1,11 @@
 <div class="d-grid gap-2 d-md-flex">
   <%= bs5_button_to('New', 'http://www.example.com') %>
 
-  <%= bs5_button_to('http://www.example.com', style: :success) do %>
+  <%= bs5_button_to('http://www.example.com', color: :success) do %>
     Make happy <strong>John Doe</strong>
   <%- end %>
 
-  <%= bs5_button_to('New', 'http://www.example.com', style: :dark, outline: true, size: :large, form_class: 'new-thing') %>
+  <%= bs5_button_to('New', 'http://www.example.com', color: :dark, outline: true, size: :large, form_class: 'new-thing') %>
 
-  <%= bs5_button_to('Destroy', 'http://www.example.com', style: :danger, method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
+  <%= bs5_button_to('Destroy', 'http://www.example.com', color: :danger, method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
 </div>

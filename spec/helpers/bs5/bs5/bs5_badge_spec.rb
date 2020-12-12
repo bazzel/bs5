@@ -16,10 +16,10 @@ module Bs5
       end
 
       describe 'with `type` specified' do
-        let(:options) { { text: text, style: style } }
+        let(:options) { { text: text, color: color } }
 
         describe 'that has light text' do
-          let(:style) { 'success' }
+          let(:color) { 'success' }
 
           it {
             is_expected.to have_selector('.badge.bg-success:not(.text-dark)', text: text)
@@ -27,7 +27,7 @@ module Bs5
         end
 
         describe 'that has dark text' do
-          let(:style) { 'warning' }
+          let(:color) { 'warning' }
 
           it {
             is_expected.to have_selector('.badge.bg-warning.text-dark', text: text)
@@ -35,7 +35,7 @@ module Bs5
         end
 
         describe 'with an invalid type' do
-          let(:style) { 'lorem' }
+          let(:color) { 'lorem' }
 
           it {
             expect do

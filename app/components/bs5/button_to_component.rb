@@ -3,14 +3,14 @@
 module Bs5
   class ButtonToComponent < ViewComponent::Base
     STYLES = %i[primary secondary success danger warning info light dark link].freeze
-    DEFAULT_STYLE = :primary
+    DEFAULT_COLOR = :primary
     SIZES = { small: :sm, large: :lg }.freeze
     CLASS_PREFIX = 'btn'
 
     attr_reader :size
 
     include ActiveModel::Validations
-    validates :style, style: true
+    validates :color, style: true
     validates :size, inclusion: { in: SIZES.keys, valid_sizes: SIZES.keys.to_sentence, allow_nil: true }
 
     def initialize(name = nil, options = nil, html_options = nil)
@@ -53,13 +53,13 @@ module Bs5
     end
 
     def extract_custom_options
-      extract_style
+      extract_color
       extract_outline
       extract_size
     end
 
-    def extract_style
-      @style = @button_to_options.delete(:style)
+    def extract_color
+      @color = @button_to_options.delete(:color)
     end
 
     def extract_outline
@@ -85,7 +85,7 @@ module Bs5
     end
 
     def contextual_class
-      [CLASS_PREFIX, outline? ? 'outline' : nil, style].compact.join('-')
+      [CLASS_PREFIX, outline? ? 'outline' : nil, color].compact.join('-')
     end
 
     def size_class
@@ -94,8 +94,8 @@ module Bs5
       [CLASS_PREFIX, SIZES[size]].join('-')
     end
 
-    def style
-      (@style || DEFAULT_STYLE).to_sym
+    def color
+      (@color || DEFAULT_COLOR).to_sym
     end
 
     def outline?

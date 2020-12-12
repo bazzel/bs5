@@ -62,7 +62,7 @@ module Bs5
 
         @active = @options.delete(:active) || false
         @disabled = @options.delete(:disabled) || false
-        @style = @options.delete(:style)
+        @color = @options.delete(:color)
 
         set_attributes
       end
@@ -125,7 +125,7 @@ module Bs5
         class_names = [CLASS_NAME_BASE]
         class_names << 'active' if active?
         class_names << 'disabled' if disabled?
-        class_names << contextual_class if style?
+        class_names << contextual_class if color?
 
         class_names
       end
@@ -138,12 +138,12 @@ module Bs5
         !!@disabled
       end
 
-      def style?
-        !!@style
+      def color?
+        !!@color
       end
 
       def contextual_class
-        [CLASS_NAME_BASE, @style].join('-')
+        [CLASS_NAME_BASE, @color].join('-')
       end
     end
   end

@@ -15,19 +15,19 @@ module Bs5
         }
       end
 
-      describe 'with `style` specified' do
-        let(:options) { { style: style } }
+      describe 'with `color` specified' do
+        let(:options) { { color: color } }
 
-        describe 'with a valid style' do
-          let(:style) { 'primary' }
+        describe 'with a valid color' do
+          let(:color) { 'primary' }
 
           it {
             is_expected.to have_selector('.alert.alert-primary[role="alert"]')
           }
         end
 
-        describe 'with an invalid style' do
-          let(:style) { 'lorem' }
+        describe 'with an invalid color' do
+          let(:color) { 'lorem' }
 
           it {
             expect do

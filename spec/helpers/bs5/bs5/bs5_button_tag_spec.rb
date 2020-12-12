@@ -22,17 +22,17 @@ module Bs5
         }
       end
 
-      describe 'with `style` specified' do
+      describe 'with `color` specified' do
         subject { helper.bs5_button_tag(options) }
-        let(:options) { { style: style } }
-        let(:style) { 'link' }
+        let(:options) { { color: color } }
+        let(:color) { 'link' }
 
         it {
           is_expected.to have_selector('button.btn.btn-link[name="button"][type="submit"]', text: 'Button')
         }
 
         describe 'with an invalid type' do
-          let(:style) { 'lorem' }
+          let(:color) { 'lorem' }
 
           it {
             expect do
@@ -43,7 +43,7 @@ module Bs5
 
         describe 'with options' do
           subject { helper.bs5_button_tag('Reset', options) }
-          let(:options) { { style: 'success', type: 'reset', disabled: true } }
+          let(:options) { { color: 'success', type: 'reset', disabled: true } }
 
           it {
             is_expected.to have_selector('button.btn.btn-success[name="button"][type="reset"][disabled="disabled"]', text: 'Reset')
@@ -59,8 +59,8 @@ module Bs5
           is_expected.to have_selector('button.btn.btn-outline-primary[name="button"][type="submit"]', text: 'Button')
         }
 
-        describe 'with `style` specified' do
-          let(:options) { { outline: true, style: 'warning' } }
+        describe 'with `color` specified' do
+          let(:options) { { outline: true, color: 'warning' } }
 
           it {
             is_expected.to have_selector('button.btn.btn-outline-warning[name="button"][type="submit"]', text: 'Button')

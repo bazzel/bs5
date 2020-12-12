@@ -123,11 +123,11 @@ module Bs5
               it { is_expected.to have_selector('div.list-group button.list-group-item.list-group-item-action[disabled]', text: 'Ipsum') }
             end
 
-            describe 'with `style`' do
+            describe 'with `color`' do
               subject do
                 helper.bs5_list_group do |lg|
-                  lg.item(style: :primary) { tag.a('Lorem', href: '#') }
-                  lg.item(style: :warning) { tag.button('Ipsum', type: :button) }
+                  lg.item(color: :primary) { tag.a('Lorem', href: '#') }
+                  lg.item(color: :warning) { tag.button('Ipsum', type: :button) }
                 end
               end
 
@@ -136,11 +136,11 @@ module Bs5
             end
           end
 
-          describe 'with `style`' do
+          describe 'with `color`' do
             subject do
               helper.bs5_list_group do |lg|
-                lg.item(style: :primary) { 'Lorem' }
-                lg.item(style: :warning) { 'Ipsum' }
+                lg.item(color: :primary) { 'Lorem' }
+                lg.item(color: :warning) { 'Ipsum' }
               end
 
               it { is_expected.to have_selector('ul.list-group li.list-group-item.list-group-item-primary', text: 'Lorem') }
