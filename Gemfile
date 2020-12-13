@@ -16,5 +16,7 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 group :development, :test do
+  # If defined in the gemspec file with `add_development_dependency`
+  # Travis will fail.
   gem 'rubocop-rails', '~> 2.8'
 end
