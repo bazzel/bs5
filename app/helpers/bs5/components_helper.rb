@@ -3,7 +3,7 @@
 module Bs5
   module ComponentsHelper
     COMPONENTS = %w[accordion alert badge close_button breadcrumb button_group button_tag button_to button_toolbar
-                    list_group spinner].freeze
+                    list_group spinner toast].freeze
 
     COMPONENTS.each do |name|
       define_method("bs5_#{name}") do |*args, &block|
