@@ -15,3 +15,6 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+group :development, :test do
+  gem 'rubocop-rails', '~> 2.8'
+end

@@ -27,6 +27,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'capybara', '~> 3.33'
   spec.add_development_dependency 'rspec-rails', '~> 4.0.1'
-  spec.add_development_dependency 'rubocop-rails', '~> 2.8'
   spec.add_development_dependency 'sqlite3'
 end
