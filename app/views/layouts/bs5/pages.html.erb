@@ -4,6 +4,7 @@
   <title>Bs5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'bs5/application', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_pack_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
   <style><%= Rouge::Themes::Github.render(scope: '.highlight') %></style>
 </head>
