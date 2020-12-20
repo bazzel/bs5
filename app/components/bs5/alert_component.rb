@@ -2,6 +2,7 @@
 
 module Bs5
   class AlertComponent < ViewComponent::Base
+    include ComponentsHelper
     STYLES = %i[primary secondary success danger warning info light dark].freeze
 
     attr_reader :color, :is_dismissable

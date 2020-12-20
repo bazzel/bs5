@@ -1,6 +1,6 @@
 <div class="<%= component_class %>" role="alert">
   <%= content %>
   <%- if is_dismissable %>
-    <%= render Bs5::CloseButtonComponent.new(data: { 'bs-dismiss': :alert }) %>
+    <%= bs5_close_button(dismiss: :alert) %>
   <%- end %>
 </div>

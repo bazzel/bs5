@@ -1,0 +1,44 @@
+<div
+  aria-live="polite"
+  aria-atomic="true"
+  class="position-relative"
+  style="min-height: 240px"
+>
+  <%= bs5_toast_container(class: 'position-absolute top-0 end-0') do %>
+    <%= bs5_toast do |t| %>
+      <%= t.header do %>
+        <svg
+          class="bd-placeholder-img rounded me-2"
+          width="20"
+          height="20"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <rect width="100%" height="100%" fill="#007aff"></rect>
+        </svg>
+        <strong class="me-auto">Bootstrap</strong>
+        <small>just now</small>
+      <% end %>
+      <%= t.body do %>See? Just like this.<% end %>
+    <% end %>
+
+    <%= bs5_toast do |t| %>
+      <%= t.header do %>
+        <svg
+          class="bd-placeholder-img rounded me-2"
+          width="20"
+          height="20"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <rect width="100%" height="100%" fill="#007aff"></rect>
+        </svg>
+        <strong class="me-auto">Bootstrap</strong>
+        <small>2 seconds ago</small>
+      <% end %>
+      <%= t.body do %>Heads up, toasts will stack automatically<% end %>
+    <% end %>
+  <% end %>
+</div>

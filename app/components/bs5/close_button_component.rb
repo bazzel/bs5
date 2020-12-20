@@ -2,12 +2,19 @@
 
 module Bs5
   class CloseButtonComponent < ViewComponent::Base
-    attr_reader :data
+    def initialize(options = {})
+      @options = options.symbolize_keys
 
-    def initialize(disabled: false, white: false, data: nil)
-      @disabled = disabled
-      @white = white
-      @data = data
+      @disabled = options.delete(:disabled)
+      @white = options.delete(:white)
+      @dismiss = options.delete(:dismiss)
+      @data = options.fetch(:data, {})
+    end
+
+    def data
+      @data['bs-dismiss'] = @dismiss if @dismiss
+
+      @data
     end
 
     private
@@ -21,7 +28,8 @@ module Bs5
     end
 
     def component_class
-      class_names = ['btn-close']
+      class_names = Array(@options[:class])
+      class_names << 'btn-close'
       class_names << %w[btn-close-white] if white?
       class_names.join(' ')
     end

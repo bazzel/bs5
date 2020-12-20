@@ -47,6 +47,7 @@ module Bs5
       extract_color
       extract_outline
       extract_size
+      extract_dismiss
     end
 
     def extract_color
@@ -61,6 +62,10 @@ module Bs5
       @size = @options.delete(:size)
     end
 
+    def extract_dismiss
+      @dismiss = @options.delete(:dismiss)
+    end
+
     def merge_default_options
       @options.deep_merge!(default_options) do |_key, this_val, other_val|
         [this_val, other_val].join(' ').strip
@@ -68,7 +73,11 @@ module Bs5
     end
 
     def default_options
-      { class: button_class }
+      default_options = { class: button_class }
+
+      default_options[:data] = { 'bs-dismiss': @dismiss } if @dismiss
+
+      default_options
     end
 
     def button_class

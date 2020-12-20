@@ -1,0 +1,9 @@
+<%= bs5_toast(close_button: false) do |t| %>
+  <%= t.body do %>
+    Hello, world! This is a toast message.
+    <div class="mt-2 pt-2 border-top">
+      <%= bs5_button_tag('Take action', color: :primary, size: :small) %>
+      <%= bs5_button_tag('Close', color: :secondary, size: :small, dismiss: :toast) %>
+    </div>
+  <% end %>
+<% end %>

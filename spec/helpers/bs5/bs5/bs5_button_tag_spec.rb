@@ -107,6 +107,15 @@ module Bs5
           is_expected.to have_selector('button.btn.btn-primary.lorem[name="button"][data-toggle="button"]', text: 'Button')
         }
       end
+
+      describe 'with `dismiss`' do
+        subject { helper.bs5_button_tag('Button', options) }
+        let(:options) { { dismiss: 'lorem' } }
+
+        it {
+          is_expected.to have_selector('button.btn.btn-primary[name="button"][data-bs-dismiss="lorem"]', text: 'Button')
+        }
+      end
     end
   end
 end

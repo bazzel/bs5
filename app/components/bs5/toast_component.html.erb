@@ -1,4 +1,8 @@
-<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<%= tag.div(component_attributes) do %>
   <%= header %>
   <%= body %>
-</div>
+
+  <%- if close_button? && !header? %>
+    <%= bs5_close_button(white: white_text?, class: 'ms-auto me-2', dismiss: :toast) %>
+  <% end %>
+<% end %>
