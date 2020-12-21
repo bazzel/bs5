@@ -1,11 +1,11 @@
 <%= bs5_list_group do |lg| %>
   <% lg.item do %>Dapibus ac facilisis in<% end %>
-  <% lg.item(color: :primary) do %>A simple primary list group item<% end %>
-  <% lg.item(color: :secondary) do %>A simple secondary list group item<% end %>
-  <% lg.item(color: :success) do %>A simple success list group item<% end %>
-  <% lg.item(color: :danger) do %>A simple danger list group item<% end %>
-  <% lg.item(color: :warning) do %>A simple warning list group item<% end %>
-  <% lg.item(color: :info) do %>A simple info list group item<% end %>
-  <% lg.item(color: :light) do %>A simple light list group item<% end %>
-  <% lg.item(color: :dark) do %>A simple dark list group item<% end %>
+  <% lg.item(color: :primary) { "A simple primary list group item" } %>
+  <% lg.item(color: :secondary) { "A simple secondary list group item" } %>
+  <% lg.item(color: :success) { "A simple success list group item" } %>
+  <% lg.item(color: :danger) { "A simple danger list group item" } %>
+  <% lg.item(color: :warning) { "A simple warning list group item" } %>
+  <% lg.item(color: :info) { "A simple info list group item" } %>
+  <% lg.item(color: :light) { "A simple light list group item" } %>
+  <% lg.item(color: :dark) { "A simple dark list group item" } %>
 <%- end %>
