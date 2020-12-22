@@ -1,0 +1,7 @@
+<%= bs5_dropdown('Dropdown button', dark: true) do |d| %>
+  <%= d.item do %><%= link_to 'Action', '#', class: 'active' %><% end %>
+  <%= d.item do %><%= link_to 'Another action', '#' %><% end %>
+  <%= d.item do %><%= link_to 'Something else here', '#' %><% end %>
+  <%= d.item %>
+  <%= d.item do %><%= link_to 'Separated link', '#' %><% end %>
+<% end %>

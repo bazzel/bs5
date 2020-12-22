@@ -8,7 +8,7 @@
     <% else %>
       <%= bs5_button_tag title, single_button_options %>
     <% end %>
-    <ul class="<%= "#{CLASS_PREFIX}-menu" %>">
+    <ul class="<%= dropdown_menu_classes %>">
       <% items.each do |item| %><%= item %><% end %>
     </ul>
   </div>

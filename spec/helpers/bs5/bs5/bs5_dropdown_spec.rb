@@ -58,6 +58,12 @@ module Bs5
         it { is_expected.to have_selector('.dropdown button.btn.btn-lg.btn-primary.dropdown-toggle', text: 'Dropdown button') }
       end
 
+      describe 'with `dark`' do
+        let(:options) { { dark: true } }
+
+        it { is_expected.to have_selector('.dropdown ul.dropdown-menu.dropdown-menu-dark') }
+      end
+
       describe 'with `split`' do
         let(:options) { { split: true } }
 
@@ -89,6 +95,12 @@ module Bs5
 
           it { is_expected.to have_selector('.btn-group button.btn.btn-sm.btn-primary', text: 'Dropdown button') }
           it { is_expected.to have_selector('.btn-group button.btn.btn-sm.btn-primary.dropdown-toggle.dropdown-toggle-split[type="button"][data-bs-toggle="dropdown"][aria-expanded="false"] span.visually-hidden', text: 'Toggle Dropdown') }
+        end
+
+        describe 'with `dark`' do
+          let(:options) { { split: true, dark: true } }
+
+          it { is_expected.to have_selector('.btn-group ul.dropdown-menu.dropdown-menu-dark') }
         end
       end
     end

@@ -7,7 +7,7 @@ module Bs5
     CLASS_PREFIX = 'dropdown'
 
     renders_many :items, Bs5::Dropdown::ItemComponent
-    attr_reader :title, :split
+    attr_reader :title
 
     def initialize(content_or_options = nil, options = {})
       if content_or_options.is_a? Hash
@@ -18,6 +18,7 @@ module Bs5
       end
 
       @split = @options.delete(:split)
+      @dark = @options.delete(:dark)
     end
 
     private
@@ -41,7 +42,11 @@ module Bs5
     end
 
     def split?
-      !!split
+      !!@split
+    end
+
+    def dark?
+      !!@dark
     end
 
     def default_button_options
@@ -54,6 +59,13 @@ module Bs5
                                      aria: { expanded: false },
                                      class: "#{CLASS_PREFIX}-toggle"
                                    })
+    end
+
+    def dropdown_menu_classes
+      class_names = ["#{CLASS_PREFIX}-menu"]
+      class_names << "#{CLASS_PREFIX}-menu-dark" if dark?
+
+      class_names.join(' ')
     end
   end
 end
