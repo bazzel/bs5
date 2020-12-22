@@ -1,0 +1,17 @@
+<%= bs5_button_group do %>
+  <%= bs5_dropdown('Small button', size: :small) do |d| %>
+    <%= d.item do %><%= link_to 'Action', '#' %><% end %>
+    <%= d.item do %><%= link_to 'Another action', '#' %><% end %>
+    <%= d.item do %><%= link_to 'Something else here', '#' %><% end %>
+    <%= d.item %>
+    <%= d.item do %><%= link_to 'Separated link', '#' %><% end %>
+  <% end %>
+<% end %>
+
+<%= bs5_dropdown('Small button', split: true, size: :small) do |d| %>
+  <%= d.item do %><%= link_to 'Action', '#' %><% end %>
+  <%= d.item do %><%= link_to 'Another action', '#' %><% end %>
+  <%= d.item do %><%= link_to 'Something else here', '#' %><% end %>
+  <%= d.item %>
+  <%= d.item do %><%= link_to 'Separated link', '#' %><% end %>
+<% end %>
