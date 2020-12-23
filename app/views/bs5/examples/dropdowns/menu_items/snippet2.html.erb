@@ -1,0 +1,6 @@
+<%= bs5_dropdown('Dropdown') do |d| %>
+  <%= d.item do %><span class="dropdown-item-text">Dropdown item text</span><% end %>
+  <%= d.item do %><%= link_to 'Action', '#' %><% end %>
+  <%= d.item do %><%= link_to 'Another action', '#' %><% end %>
+  <%= d.item do %><%= link_to 'Something else here', '#' %><% end %>
+<% end %>

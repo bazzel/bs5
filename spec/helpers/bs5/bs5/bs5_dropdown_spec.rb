@@ -144,6 +144,26 @@ module Bs5
           end
         end
       end
+
+      describe 'with buttons' do
+        subject do
+          helper.bs5_dropdown('Dropdown button', options) do |d|
+            d.item { button_tag('Action') }
+          end
+        end
+
+        it { is_expected.to have_selector('.dropdown ul.dropdown-menu li button.dropdown-item', text: 'Action') }
+      end
+
+      describe 'with non-actionable tags' do
+        subject do
+          helper.bs5_dropdown('Dropdown button', options) do |d|
+            d.item { tag.span('Action', class: 'my-class') }
+          end
+        end
+
+        it { is_expected.to have_selector('.dropdown ul.dropdown-menu li span.my-class:not(.dropdown-item)', text: 'Action') }
+      end
     end
   end
 end

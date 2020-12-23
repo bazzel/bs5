@@ -1,0 +1,5 @@
+<%= bs5_dropdown('Dropdown') do |d| %>
+  <%= d.item do %><%= link_to 'Regular link', '#' %><% end %>
+  <%= d.item do %><%= link_to 'Disabled link', '#', class: 'disabled' %><% end %>
+  <%= d.item do %><%= link_to 'Another link', '#' %><% end %>
+<% end %>
