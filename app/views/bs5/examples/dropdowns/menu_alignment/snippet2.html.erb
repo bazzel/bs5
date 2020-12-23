@@ -1,0 +1,7 @@
+<%= bs5_button_group do %>
+  <%= bs5_dropdown('Left-aligned but right aligned when large screen', align: { end: :lg }) do |d| %>
+    <%= d.item do %><%= button_tag 'Action' %><% end %>
+    <%= d.item do %><%= button_tag 'Another action' %><% end %>
+    <%= d.item do %><%= button_tag 'Something else here' %><% end %>
+  <% end %>
+<% end %>

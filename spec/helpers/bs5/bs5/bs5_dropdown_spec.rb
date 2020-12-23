@@ -164,6 +164,28 @@ module Bs5
 
         it { is_expected.to have_selector('.dropdown ul.dropdown-menu li span.my-class:not(.dropdown-item)', text: 'Action') }
       end
+
+      describe 'with `align`' do
+        describe 'with Symbol specified' do
+          let(:options) { { align: :end } }
+
+          it { is_expected.to have_selector('.dropdown button + ul.dropdown-menu.dropdown-menu-end') }
+        end
+
+        describe 'with Hash specified' do
+          describe 'with `:end`' do
+            let(:options) { { align: { end: :lg } } }
+
+            it { is_expected.to have_selector('.dropdown button[data-bs-display="static"] + ul.dropdown-menu.dropdown-menu-lg-end') }
+          end
+
+          describe 'with `:start`' do
+            let(:options) { { align: { start: :lg } } }
+
+            it { is_expected.to have_selector('.dropdown button[data-bs-display="static"] + ul.dropdown-menu.dropdown-menu-end.dropdown-menu-lg-start') }
+          end
+        end
+      end
     end
   end
 end

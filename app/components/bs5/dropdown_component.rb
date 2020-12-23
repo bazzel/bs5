@@ -4,12 +4,14 @@ module Bs5
   class DropdownComponent < ViewComponent::Base
     include ViewComponent::SlotableV2
     include ComponentsHelper
+    using HashRefinement
+
     CLASS_PREFIX = 'dropdown'
     DIRECTIONS = {
       up: :dropup,
       end: :dropend,
       start: :dropstart
-    }.freeze
+    }.with_indifferent_access.freeze
 
     renders_many :items, Bs5::Dropdown::ItemComponent
     attr_reader :title
@@ -24,7 +26,8 @@ module Bs5
 
       @split = @options.delete(:split)
       @dark = @options.delete(:dark)
-      @direction = @options.delete(:direction)&.to_sym
+      @direction = @options.delete(:direction)
+      @align = @options.delete(:align)
     end
 
     private
@@ -72,17 +75,47 @@ module Bs5
 
     def default_options
       default_button_options.merge({
-                                     data: { bs_toggle: :dropdown },
+                                     data: default_data_options,
                                      aria: { expanded: false },
                                      class: "#{CLASS_PREFIX}-toggle"
                                    })
     end
 
+    def default_data_options
+      default_data_options = { toggle: :dropdown }
+
+      default_data_options[:display] = 'static' if responsive_align?
+
+      default_data_options.prefix_keys_with_bs
+    end
+
     def dropdown_menu_classes
       class_names = ["#{CLASS_PREFIX}-menu"]
       class_names << "#{CLASS_PREFIX}-menu-dark" if dark?
+      class_names << align_classes
 
-      class_names.join(' ')
+      class_names.compact.join(' ')
+    end
+
+    def align_classes
+      case @align
+      when Symbol
+        'dropdown-menu-end'
+      when Hash
+        responsive_align_classes
+      end
+    end
+
+    def responsive_align_classes
+      k, v = @align.first
+      class_names = ["dropdown-menu-#{v}-#{k}"]
+      class_names << 'dropdown-menu-end' if @align.with_indifferent_access.key?(:start)
+
+      class_names
+    end
+
+    def responsive_align?
+      @align.is_a? Hash
     end
   end
 end
