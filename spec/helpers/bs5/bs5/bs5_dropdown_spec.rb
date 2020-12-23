@@ -64,6 +64,26 @@ module Bs5
         it { is_expected.to have_selector('.dropdown ul.dropdown-menu.dropdown-menu-dark') }
       end
 
+      describe 'directions' do
+        describe 'with `up`' do
+          let(:options) { { direction: :up } }
+
+          it { is_expected.to have_selector('.dropdown.dropup') }
+        end
+
+        describe 'with `end`' do
+          let(:options) { { direction: :end } }
+
+          it { is_expected.to have_selector('.dropdown.dropend') }
+        end
+
+        describe 'with `start`' do
+          let(:options) { { direction: :start } }
+
+          it { is_expected.to have_selector('.dropdown.dropstart') }
+        end
+      end
+
       describe 'with `split`' do
         let(:options) { { split: true } }
 
@@ -101,6 +121,27 @@ module Bs5
           let(:options) { { split: true, dark: true } }
 
           it { is_expected.to have_selector('.btn-group ul.dropdown-menu.dropdown-menu-dark') }
+        end
+
+        describe 'directions' do
+          describe 'with `up`' do
+            let(:options) { { split: true, direction: :up } }
+
+            it { is_expected.to have_selector('.btn-group.dropup button + button.dropdown-toggle.dropdown-toggle-split + ul.dropdown-menu') }
+          end
+
+          describe 'with `end`' do
+            let(:options) { { split: true, direction: :end } }
+
+            it { is_expected.to have_selector('.btn-group.dropend button + button.dropdown-toggle.dropdown-toggle-split + ul.dropdown-menu') }
+          end
+
+          describe 'with `start`' do
+            let(:options) { { split: true, direction: :start } }
+
+            it { is_expected.to have_selector('.btn-group .btn-group.dropstart button.dropdown-toggle.dropdown-toggle-split + ul.dropdown-menu') }
+            it { is_expected.to have_selector('.btn-group .btn-group.dropstart + button:not(.dropdown-toggle)') }
+          end
         end
       end
     end

@@ -1,15 +1,34 @@
 <% if items.any? %>
-  <div class="<%= component_class %>">
-    <%- if split? %>
-      <%= bs5_button_tag title, split_button_options %>
-      <%= bs5_button_tag split_button_toggle_options do %>
-        <span class="visually-hidden">Toggle Dropdown</span>
+  <% if split? %>
+    <% if dropstart? %>
+      <%= bs5_button_group do %>
+        <div class="<%= component_class %>">
+          <%= bs5_button_tag split_button_toggle_options do %>
+            <span class="visually-hidden">Toggle Dropdown</span>
+          <% end %>
+          <ul class="<%= dropdown_menu_classes %>">
+            <% items.each do |item| %><%= item %><% end %>
+          </ul>
+        </div>
+        <%= bs5_button_tag title, split_button_options %>
       <% end %>
     <% else %>
-      <%= bs5_button_tag title, single_button_options %>
+      <div class="<%= component_class %>">
+        <%= bs5_button_tag title, split_button_options %>
+        <%= bs5_button_tag split_button_toggle_options do %>
+          <span class="visually-hidden">Toggle Dropdown</span>
+        <% end %>
+        <ul class="<%= dropdown_menu_classes %>">
+          <% items.each do |item| %><%= item %><% end %>
+        </ul>
+      </div>
     <% end %>
-    <ul class="<%= dropdown_menu_classes %>">
-      <% items.each do |item| %><%= item %><% end %>
-    </ul>
-  </div>
+  <% else %>
+    <div class="<%= component_class %>">
+      <%= bs5_button_tag title, single_button_options %>
+      <ul class="<%= dropdown_menu_classes %>">
+        <% items.each do |item| %><%= item %><% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

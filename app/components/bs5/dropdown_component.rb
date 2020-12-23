@@ -5,6 +5,11 @@ module Bs5
     include ViewComponent::SlotableV2
     include ComponentsHelper
     CLASS_PREFIX = 'dropdown'
+    DIRECTIONS = {
+      up: :dropup,
+      end: :dropend,
+      start: :dropstart
+    }.freeze
 
     renders_many :items, Bs5::Dropdown::ItemComponent
     attr_reader :title
@@ -19,6 +24,7 @@ module Bs5
 
       @split = @options.delete(:split)
       @dark = @options.delete(:dark)
+      @direction = @options.delete(:direction)&.to_sym
     end
 
     private
@@ -28,7 +34,10 @@ module Bs5
     end
 
     def component_class
-      split? ? 'btn-group' : CLASS_PREFIX
+      class_names = split? ? ['btn-group'] : [CLASS_PREFIX]
+      class_names << DIRECTIONS[@direction] if direction?
+
+      class_names.join(' ')
     end
 
     def split_button_options
@@ -47,6 +56,14 @@ module Bs5
 
     def dark?
       !!@dark
+    end
+
+    def direction?
+      !!@direction
+    end
+
+    def dropstart?
+      @direction == :start
     end
 
     def default_button_options
