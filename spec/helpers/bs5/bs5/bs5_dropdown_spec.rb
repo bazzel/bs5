@@ -194,6 +194,25 @@ module Bs5
 
         it { is_expected.to have_selector('.dropdown div.dropdown-menu', text: 'Lorem Ipsum') }
       end
+
+      describe 'with JS options' do
+        let(:options) do
+          {
+            offset: '10,20',
+            flip: false,
+            boundary: 'clippingParents',
+            reference: 'parent',
+            display: 'static',
+            popperConfig: { modifiers: [] }
+          }
+        end
+
+        it { is_expected.to have_selector('.dropdown button[data-bs-offset="10,20"]') }
+        it { is_expected.to have_selector('.dropdown button[data-bs-flip="false"]') }
+        it { is_expected.to have_selector('.dropdown button[data-bs-boundary="clippingParents"]') }
+        it { is_expected.to have_selector('.dropdown button[data-bs-reference="parent"]') }
+        it { is_expected.to have_selector('.dropdown button[data-bs-display="static"]') }
+      end
     end
   end
 end

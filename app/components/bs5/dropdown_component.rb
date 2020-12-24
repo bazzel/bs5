@@ -24,13 +24,23 @@ module Bs5
         @options = options.symbolize_keys
       end
 
+      extract_options
+    end
+
+    private
+
+    def extract_options
       @split = @options.delete(:split)
       @dark = @options.delete(:dark)
       @direction = @options.delete(:direction)
       @align = @options.delete(:align)
+
+      extract_data_options
     end
 
-    private
+    def extract_data_options
+      @data_options = @options.extract!(:offset, :flip, :boundary, :reference, :display)
+    end
 
     def single_button_options
       @options.merge(default_options)
@@ -75,7 +85,7 @@ module Bs5
 
     def default_options
       default_button_options.merge({
-                                     data: default_data_options,
+                                     data: default_data_options.merge(@data_options).prefix_keys_with_bs,
                                      aria: { expanded: false },
                                      class: "#{CLASS_PREFIX}-toggle"
                                    })
@@ -86,7 +96,7 @@ module Bs5
 
       default_data_options[:display] = 'static' if responsive_align?
 
-      default_data_options.prefix_keys_with_bs
+      default_data_options
     end
 
     def dropdown_menu_classes
