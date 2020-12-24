@@ -186,6 +186,14 @@ module Bs5
           end
         end
       end
+
+      describe 'with custom content' do
+        subject do
+          helper.bs5_dropdown('Dropdown button', options) { 'Lorem Ipsum' }
+        end
+
+        it { is_expected.to have_selector('.dropdown div.dropdown-menu', text: 'Lorem Ipsum') }
+      end
     end
   end
 end
