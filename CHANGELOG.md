@@ -25,3 +25,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add viewhelper for Button group.
 - Add button to copy code snippets.
 - Add ViewComponent for Toast component.
+- Add ViewComponent for Dropdown component.
