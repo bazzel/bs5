@@ -1,0 +1,12 @@
+<%= bs5_modal(backdrop: :static, keyboard: false) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Launch demo modal', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Modal title' } %>
+  <%= m.body do %>
+    <p>I will not close if you click outside me. Don't even try to press escape key.</p>
+  <% end %>
+  <%= m.footer do %>
+    <%= bs5_button_tag('Understood', type: 'button') %>
+  <% end %>
+<% end %>

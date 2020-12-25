@@ -1,0 +1,12 @@
+<%= bs5_modal do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Launch demo modal', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Modal title' } %>
+  <%= m.body do %>
+    <p>Modal body text goes here.</p>
+  <% end %>
+  <%= m.footer do %>
+    <%= bs5_button_tag('Save changes', type: 'button') %>
+  <% end %>
+<% end %>
