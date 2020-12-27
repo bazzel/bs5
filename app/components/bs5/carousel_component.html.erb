@@ -1,0 +1,8 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <% items.each_with_index do |item, index| %>
+      <% item.active = index.zero? %>
+      <%= item %>
+    <% end %>
+  </div>
+</div>
