@@ -50,6 +50,22 @@ module Bs5
         it { is_expected.to have_selector('.modal.fade[data-bs-focus="false"]') }
       end
 
+      describe 'with `scroll`' do
+        let(:options) do
+          { scroll: true }
+        end
+
+        it { is_expected.to have_selector('.modal.fade .modal-dialog.modal-dialog-scrollable') }
+      end
+
+      describe 'with `center`' do
+        let(:options) do
+          { center: true }
+        end
+
+        it { is_expected.to have_selector('.modal.fade .modal-dialog.modal-dialog-centered') }
+      end
+
       describe 'without footer?'
       describe 'without header?'
       describe 'with custom close text'

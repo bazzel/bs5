@@ -24,6 +24,8 @@ module Bs5
     private
 
     def extract_options
+      @scroll = @options.delete(:scroll)
+      @center = @options.delete(:center)
       # @split = @options.delete(:split)
       # @dark = @options.delete(:dark)
       # @direction = @options.delete(:direction)
@@ -44,12 +46,26 @@ module Bs5
         data: @modal_options.prefix_keys_with_bs }
     end
 
+    def dialog_classes
+      class_names = ['modal-dialog']
+      class_names << 'modal-dialog-scrollable' if scroll?
+      class_names << 'modal-dialog-centered' if center?
+
+      class_names.join(' ')
+    end
+
     def modal_id
       "modal-#{object_id}"
     end
 
     def label_id
       "modal-label-#{object_id}"
+    end
+
+    %i[scroll center].each do |name|
+      define_method("#{name}?") do
+        !instance_variable_get("@#{name}").nil?
+      end
     end
   end
 end
