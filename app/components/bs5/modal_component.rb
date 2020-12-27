@@ -26,10 +26,8 @@ module Bs5
     def extract_options
       @scroll = @options.delete(:scroll)
       @center = @options.delete(:center)
-      # @split = @options.delete(:split)
-      # @dark = @options.delete(:dark)
-      # @direction = @options.delete(:direction)
-      # @align = @options.delete(:align)
+      @size = @options.delete(:size)
+      @fullscreen = @options.delete(:fullscreen)
 
       extract_modal_options
     end
@@ -50,8 +48,19 @@ module Bs5
       class_names = ['modal-dialog']
       class_names << 'modal-dialog-scrollable' if scroll?
       class_names << 'modal-dialog-centered' if center?
+      class_names << "modal-#{@size}" if size?
+      class_names << fullscreen_class
 
       class_names.join(' ')
+    end
+
+    def fullscreen_class
+      return unless fullscreen?
+
+      class_name = %w[modal fullscreen]
+      class_name << [@fullscreen, 'down'] if @fullscreen.is_a?(Symbol)
+
+      class_name.join('-')
     end
 
     def modal_id
@@ -62,7 +71,7 @@ module Bs5
       "modal-label-#{object_id}"
     end
 
-    %i[scroll center].each do |name|
+    %i[scroll center size fullscreen].each do |name|
       define_method("#{name}?") do
         !instance_variable_get("@#{name}").nil?
       end

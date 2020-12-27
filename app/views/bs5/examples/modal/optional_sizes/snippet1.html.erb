@@ -1,0 +1,23 @@
+<%= bs5_modal(size: :xl) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Extra large modal', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Extra large modal' } %>
+  <%= m.body { '...' } %>
+<% end %>
+
+<%= bs5_modal(size: :lg) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Large modal', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Large modal' } %>
+  <%= m.body { '...' } %>
+<% end %>
+
+<%= bs5_modal(size: :sm) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Small modal', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Small modal' } %>
+  <%= m.body { '...' } %>
+<% end %>

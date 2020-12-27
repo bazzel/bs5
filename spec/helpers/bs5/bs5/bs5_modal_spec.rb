@@ -34,6 +34,19 @@ module Bs5
         it { is_expected.to have_selector('.modal.fade .modal-footer .btn-secondary + .btn-primary') }
 
         describe 'without close button'
+
+        describe 'with close button only' do
+          subject do
+            helper.bs5_modal(options) do |m|
+              m.controller { bs5_button_tag('Open modal', type: 'button') }
+              m.header { 'Title' }
+              m.body { 'Body' }
+              m.footer {} # rubocop:disable Lint/EmptyBlock
+            end
+          end
+
+          it { is_expected.to have_selector('.modal.fade .modal-footer button.btn.btn-secondary[type="button"][data-bs-dismiss="modal"]', text: 'Close') }
+        end
       end
 
       describe 'with JS options' do
@@ -66,8 +79,56 @@ module Bs5
         it { is_expected.to have_selector('.modal.fade .modal-dialog.modal-dialog-centered') }
       end
 
-      describe 'without footer?'
-      describe 'without header?'
+      describe 'fullscreen' do
+        describe 'with `true`' do
+          let(:options) do
+            { fullscreen: true }
+          end
+
+          it { is_expected.to have_selector('.modal.fade .modal-dialog.modal-fullscreen') }
+        end
+
+        describe 'with `sm`' do
+          let(:options) do
+            { fullscreen: :sm }
+          end
+
+          it { is_expected.to have_selector('.modal.fade .modal-dialog.modal-fullscreen-sm-down') }
+        end
+
+        describe 'with `md`' do
+          let(:options) do
+            { fullscreen: :md }
+          end
+
+          it { is_expected.to have_selector('.modal.fade .modal-dialog.modal-fullscreen-md-down') }
+        end
+
+        describe 'with `lg`' do
+          let(:options) do
+            { fullscreen: :lg }
+          end
+
+          it { is_expected.to have_selector('.modal.fade .modal-dialog.modal-fullscreen-lg-down') }
+        end
+
+        describe 'with `xl`' do
+          let(:options) do
+            { fullscreen: :xl }
+          end
+
+          it { is_expected.to have_selector('.modal.fade .modal-dialog.modal-fullscreen-xl-down') }
+        end
+
+        describe 'with `xxl`' do
+          let(:options) do
+            { fullscreen: :xxl }
+          end
+
+          it { is_expected.to have_selector('.modal.fade .modal-dialog.modal-fullscreen-xxl-down') }
+        end
+      end
+
       describe 'with custom close text'
     end
   end

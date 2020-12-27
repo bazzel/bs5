@@ -1,0 +1,55 @@
+<%= bs5_modal(fullscreen: true) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Full screen', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Full screen modal' } %>
+  <%= m.body do %>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+  <% end %>
+  <%= m.footer {} %>
+<% end %>
+
+<%= bs5_modal(fullscreen: :sm) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Full screen below sm', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Full screen below sm' } %>
+  <%= m.body { '...'} %>
+  <%= m.footer {} %>
+<% end %>
+
+<%= bs5_modal(fullscreen: :md) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Full screen below md', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Full screen below md' } %>
+  <%= m.body { '...'} %>
+  <%= m.footer {} %>
+<% end %>
+
+<%= bs5_modal(fullscreen: :lg) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Full screen below lg', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Full screen below lg' } %>
+  <%= m.body { '...'} %>
+  <%= m.footer {} %>
+<% end %>
+
+<%= bs5_modal(fullscreen: :xl) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Full screen below xl', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Full screen below xl' } %>
+  <%= m.body { '...'} %>
+  <%= m.footer {} %>
+<% end %>
+
+<%= bs5_modal(fullscreen: :xxl) do |m| %>
+  <%= m.controller do %>
+    <%= bs5_button_tag('Full screen below xxl', type: 'button') %>
+  <% end %>
+  <%= m.header { 'Full screen below xxl' } %>
+  <%= m.body { '...'} %>
+  <%= m.footer {} %>
+<% end %>
