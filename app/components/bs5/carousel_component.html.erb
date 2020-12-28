@@ -1,4 +1,4 @@
-<div id="<%= id %>" class="carousel slide" data-bs-ride="carousel">
+<div id="<%= id %>" class="<%= component_class %>" data-bs-ride="carousel">
   <% items.each_with_index do |item, index| %>
     <% item.active = index.zero? %>
   <% end %>
