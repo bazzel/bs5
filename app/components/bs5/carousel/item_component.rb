@@ -3,6 +3,10 @@
 module Bs5
   module Carousel
     class ItemComponent < ViewComponent::Base
+      include ViewComponent::SlotableV2
+
+      renders_one :caption, Bs5::Carousel::CaptionComponent
+
       attr_accessor :active
 
       def active?

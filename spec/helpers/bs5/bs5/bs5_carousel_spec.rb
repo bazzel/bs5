@@ -6,9 +6,9 @@ module Bs5
   RSpec.describe ComponentsHelper, type: :helper do
     describe '#bs5_carousel' do
       subject do
-        helper.bs5_carousel(options) do |a|
-          a.item { tag.div('Lorem Ipsum') }
-          a.item { tag.div('Dolor Sit') }
+        helper.bs5_carousel(options) do |c|
+          c.item { tag.div('Lorem Ipsum') }
+          c.item { tag.div('Dolor Sit') }
         end
       end
 
@@ -38,6 +38,24 @@ module Bs5
           it { is_expected.to have_selector('.carousel .carousel-indicators li[data-bs-target^="#carousel-"]', count: 2) }
           it { is_expected.to have_selector('.carousel .carousel-indicators li.active[data-bs-slide-to="0"]') }
           it { is_expected.to have_selector('.carousel .carousel-indicators li:not(.active)[data-bs-slide-to="1"]') }
+        end
+      end
+
+      describe 'with caption' do
+        subject do
+          helper.bs5_carousel(options) do |c|
+            c.item do |i|
+              capture do
+                concat tag.div('Lorem Ipsum')
+                concat i.caption { tag.h5('Dolor Sit') }
+              end
+            end
+          end
+        end
+
+        describe 'item' do
+          it { is_expected.to have_selector('.carousel .carousel-item .d-block.w-100', text: 'Lorem Ipsum') }
+          it { is_expected.to have_selector('.carousel .carousel-item .carousel-caption.d-none.d-md-block', text: 'Dolor Sit') }
         end
       end
     end
