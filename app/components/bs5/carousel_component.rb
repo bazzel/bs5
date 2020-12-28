@@ -4,6 +4,9 @@ module Bs5
   class CarouselComponent < ViewComponent::Base
     include ComponentsHelper
     include ViewComponent::SlotableV2
+    using HashRefinement
+
+    CAROUSEL_OPTIONS = %i[interval keyboard pause slide wrap touch].freeze
 
     renders_many :items, Bs5::Carousel::ItemComponent
 
@@ -18,8 +21,13 @@ module Bs5
       @controls = @options.delete(:controls)
       @indicators = @options.delete(:indicators)
       @crossfade = @options.delete(:crossfade)
+      @dark = @options.delete(:dark)
 
-      # extract_carousel_options
+      extract_carousel_options
+    end
+
+    def extract_carousel_options
+      @carousel_options = @options.extract!(*CAROUSEL_OPTIONS)
     end
 
     def id
@@ -30,13 +38,20 @@ module Bs5
       items.size
     end
 
+    def component_attributes
+      { class: component_class,
+        id: id,
+        data: @carousel_options.merge(ride: :carousel).prefix_keys_with_bs }
+    end
+
     def component_class
       class_names = %w[carousel slide]
       class_names << %w[carousel-fade] if crossfade?
+      class_names << %w[carousel-dark] if dark?
       class_names.join(' ')
     end
 
-    %i[controls indicators crossfade].each do |name|
+    %i[controls indicators crossfade dark].each do |name|
       define_method("#{name}?") do
         !instance_variable_get("@#{name}").nil?
       end

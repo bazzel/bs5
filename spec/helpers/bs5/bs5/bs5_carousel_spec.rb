@@ -68,6 +68,26 @@ module Bs5
           it { is_expected.to have_selector('.carousel .carousel-item .carousel-caption.d-none.d-md-block', text: 'Dolor Sit') }
         end
       end
+
+      describe 'with JS options' do
+        let(:options) do
+          {
+            interval: 1000,
+            keyboard: false,
+            pause: false,
+            slide: true,
+            wrap: false,
+            touch: false
+          }
+        end
+
+        it { is_expected.to have_selector('.carousel[data-bs-interval="1000"]') }
+        it { is_expected.to have_selector('.carousel[data-bs-keyboard="false"]') }
+        it { is_expected.to have_selector('.carousel[data-bs-pause="false"]') }
+        it { is_expected.to have_selector('.carousel[data-bs-slide="true"]') }
+        it { is_expected.to have_selector('.carousel[data-bs-wrap="false"]') }
+        it { is_expected.to have_selector('.carousel[data-bs-touch="false"]') }
+      end
     end
   end
 end

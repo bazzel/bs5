@@ -1,6 +1,6 @@
-<%= bs5_carousel(controls: true, indicators: true) do |c| %>
+<%= bs5_carousel(controls: true, indicators: true, dark: true) do |c| %>
   <% c.item do |i| %>
-    <%= image_tag 'https://picsum.photos/id/1042/800/400?blur=2' %>
+    <%= image_tag 'https://picsum.photos/id/131/800/400?grayscale' %>
     <%= i.caption do %>
       <h5>First slide label</h5>
       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -8,7 +8,7 @@
   <% end %>
 
   <% c.item do |i| %>
-    <%= image_tag 'https://picsum.photos/id/195/800/400?blur=2' %>
+    <%= image_tag 'https://picsum.photos/id/383/800/400?grayscale' %>
     <%= i.caption do %>
       <h5>Second slide label</h5>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -16,7 +16,7 @@
   <% end %>
 
   <% c.item do |i| %>
-    <%= image_tag 'https://picsum.photos/id/960/800/400?blur=2' %>
+    <%= image_tag 'https://picsum.photos/id/130/800/400' %>
     <%= i.caption do %>
       <h5>Third slide label</h5>
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
