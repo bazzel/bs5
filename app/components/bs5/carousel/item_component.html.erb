@@ -1,4 +1,4 @@
-<div class="carousel-item <%= active? ? 'active' : '' %>">
+<%= tag.div(component_attributes) do %>
   <%= content %>
   <%= caption %>
-</div>
+<% end %>

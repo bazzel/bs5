@@ -1,0 +1,13 @@
+<%= bs5_carousel(controls: true, crossfade: true) do |c| %>
+  <% c.item(interval: 10_000) do %>
+    <%= image_tag 'https://picsum.photos/800/400?random=1' %>
+  <% end %>
+
+  <% c.item(interval: 2_000) do %>
+    <%= image_tag 'https://picsum.photos/800/400?random=2' %>
+  <% end %>
+
+  <% c.item do %>
+    <%= image_tag 'https://picsum.photos/800/400?random=3' %>
+  <% end %>
+<% end %>

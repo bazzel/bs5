@@ -20,6 +20,16 @@ module Bs5
       describe 'items' do
         it { is_expected.to have_selector('.carousel .carousel-inner .carousel-item.active div.d-block.w-100', text: 'Lorem Ipsum') }
         it { is_expected.to have_selector('.carousel .carousel-inner .carousel-item:not(.active) div.d-block.w-100', text: 'Dolor Sit') }
+
+        describe 'with interval' do
+          subject do
+            helper.bs5_carousel(options) do |c|
+              c.item(interval: 10_000) { tag.div('Lorem Ipsum') }
+            end
+          end
+
+          it { is_expected.to have_selector('.carousel .carousel-inner .carousel-item.active[data-bs-interval="10000"] div.d-block.w-100', text: 'Lorem Ipsum') }
+        end
       end
 
       describe 'with controls' do
