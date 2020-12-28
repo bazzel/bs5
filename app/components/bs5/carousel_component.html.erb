@@ -1,8 +1,30 @@
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+<div id="<%= id %>" class="carousel slide" data-bs-ride="carousel">
+  <% items.each_with_index do |item, index| %>
+    <% item.active = index.zero? %>
+  <% end %>
+
+  <% if indicators? %>
+    <ol class="carousel-indicators">
+      <% items.each_with_index do |item, index| %>
+        <li data-bs-target="#<%= id %>" data-bs-slide-to="<%= index %>" class="<%= item.active? ? 'active' : '' %>"></li>
+      <% end %>
+    </ol>
+  <% end %>
+
   <div class="carousel-inner">
     <% items.each_with_index do |item, index| %>
-      <% item.active = index.zero? %>
       <%= item %>
     <% end %>
   </div>
+
+  <% if controls? %>
+    <a class="carousel-control-prev" href="#<%= id %>" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#<%= id %>" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  <% end %>
 </div>
