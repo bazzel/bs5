@@ -32,6 +32,30 @@ module Bs5
 
         it { is_expected.to have_selector('.progress .progress-bar.bg-secondary') }
       end
+
+      describe 'with `striped`' do
+        let(:options) { { striped: true } }
+
+        it { is_expected.to have_selector('.progress .progress-bar.progress-bar-striped') }
+      end
+
+      describe 'with `animated`' do
+        let(:options) { { animated: true } }
+
+        it { is_expected.to have_selector('.progress .progress-bar.progress-bar-striped.progress-bar-animated') }
+      end
+
+      describe 'multiple bars' do
+        subject do
+          helper.bs5_progress do |p|
+            p.bar 25
+            p.bar 50, color: :success
+          end
+        end
+
+        it { is_expected.to have_selector('.progress .progress-bar[role="progressbar"][style="width: 25%"][aria-valuenow="25"][aria-valuemin="0"][aria-valuemax="100"]') }
+        it { is_expected.to have_selector('.progress .progress-bar,bg-success[role="progressbar"][style="width: 50%"][aria-valuenow="50"][aria-valuemin="0"][aria-valuemax="100"]') }
+      end
     end
   end
 end

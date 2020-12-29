@@ -22,3 +22,6 @@ Layout/LineLength:
 Metrics/ModuleLength:
   Exclude:
     - "spec/**/*"
+
+Style/DoubleNegation:
+  Enabled: false

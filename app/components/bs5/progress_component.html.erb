@@ -1,3 +1,9 @@
 <div class="progress">
-  <div class="<%= bar_class %>" role="progressbar" style="width: <%= value %>%" aria-valuenow="<%= value %>" aria-valuemin="0" aria-valuemax="100"><%= label %></div>
+  <% if bars.any? %>
+    <% bars.each do |bar| %>
+      <%= bar %>
+    <% end %>
+  <% else %>
+    <%= render Bs5::Progress::BarComponent.new(value, options) %>
+  <% end %>
 </div>
