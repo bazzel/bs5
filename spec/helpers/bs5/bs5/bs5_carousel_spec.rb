@@ -56,8 +56,8 @@ module Bs5
           helper.bs5_carousel(options) do |c|
             c.item do |i|
               capture do
-                concat tag.div('Lorem Ipsum')
-                concat i.caption { tag.h5('Dolor Sit') }
+                concat(tag.div('Lorem Ipsum'))
+                concat(i.caption { tag.h5('Dolor Sit') })
               end
             end
           end
