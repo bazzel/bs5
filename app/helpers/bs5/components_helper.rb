@@ -4,7 +4,7 @@ module Bs5
   module ComponentsHelper
     COMPONENTS = %w[accordion alert badge breadcrumb button_group button_tag button_to button_toolbar
                     carousel close_button
-                    dropdown list_group modal spinner
+                    dropdown list_group modal nav spinner
                     progress
                     toast toast_container].freeze
 
