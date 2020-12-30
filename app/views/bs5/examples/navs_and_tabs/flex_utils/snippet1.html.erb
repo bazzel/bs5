@@ -1,0 +1,6 @@
+<%= bs5_nav(style: :pills, class: 'flex-column flex-sm-row') do |n| %>
+  <% n.item(active: true, class: 'flex-sm-fill text-sm-center') do %><%= link_to 'Active', '#' %><% end %>
+  <% n.item(class: 'flex-sm-fill text-sm-center') do %><%= link_to 'Longer nav link', '#' %><% end %>
+  <% n.item(class: 'flex-sm-fill text-sm-center') do %><%= link_to 'Link', '#' %><% end %>
+  <% n.item(disabled: true, class: 'flex-sm-fill text-sm-center') do %><%= link_to 'Disabled', '#' %><% end %>
+<%- end %>

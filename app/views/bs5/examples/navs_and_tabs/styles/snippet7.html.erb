@@ -1,0 +1,6 @@
+<%= bs5_nav(style: :tabs, space: :fill) do |n| %>
+  <% n.item(active: true) do %><%= link_to 'Active', '#' %><% end %>
+  <% n.item do %><%= link_to 'Much longer nav link', '#' %><% end %>
+  <% n.item do %><%= link_to 'Link', '#' %><% end %>
+  <% n.item(disabled: true) do %><%= link_to 'Disabled', '#' %><% end %>
+<%- end %>

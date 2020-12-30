@@ -1,0 +1,6 @@
+<%= bs5_nav(style: :pills) do |n| %>
+  <% n.item(active: true) do %><%= link_to 'Active', '#' %><% end %>
+  <% n.item do %><%= link_to 'Link', '#' %><% end %>
+  <% n.item do %><%= link_to 'Link', '#' %><% end %>
+  <% n.item(disabled: true) do %><%= link_to 'Disabled', '#' %><% end %>
+<%- end %>
