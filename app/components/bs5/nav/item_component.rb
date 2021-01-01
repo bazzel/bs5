@@ -17,7 +17,7 @@ module Bs5
 
       def content
         set_element_attributes
-        element.to_html.html_safe # rubocop:disable Rails/OutputSafety
+        fragment.to_html.html_safe # rubocop:disable Rails/OutputSafety
       end
 
       def set_element_attributes
@@ -29,6 +29,7 @@ module Bs5
         end
 
         set_element_class_names
+        element.replace(element.to_html)
       end
 
       def set_element_class_names
@@ -57,11 +58,11 @@ module Bs5
       end
 
       def element
-        @element ||= begin
-          if (elements = Nokogiri::HTML::DocumentFragment.parse(@content).elements).one?
-            elements.first
-          end
-        end
+        @element ||= fragment.at_css('button', 'a')
+      end
+
+      def fragment
+        @fragment ||= Nokogiri::HTML::DocumentFragment.parse(@content)
       end
 
       %i[active disabled].each do |name|

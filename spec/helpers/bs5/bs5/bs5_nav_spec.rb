@@ -72,6 +72,16 @@ module Bs5
           it { is_expected.to have_selector('nav.nav.nav-justified') }
         end
       end
+
+      describe 'with dropdown' do
+        subject do
+          helper.bs5_nav(options) do |lg|
+            lg.item { bs5_dropdown('Dropdown', color: :link) }
+          end
+        end
+
+        it { is_expected.to have_selector('nav.nav button.btn-link.nav-link.dropdown-toggle', text: 'Dropdown') }
+      end
     end
   end
 end
