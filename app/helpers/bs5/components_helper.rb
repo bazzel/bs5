@@ -6,11 +6,11 @@ module Bs5
                     carousel close_button
                     dropdown list_group modal nav spinner
                     progress
-                    toast toast_container].freeze
+                    tabs toast toast_container].freeze
 
     COMPONENTS.each do |name|
       define_method("bs5_#{name}") do |*args, &block|
-        clazz = "Bs5::#{name.classify}Component".constantize
+        clazz = "Bs5::#{name.camelize}Component".constantize
         render_component(clazz, *args, &block)
       end
     end

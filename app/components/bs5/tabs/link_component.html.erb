@@ -1,0 +1,1 @@
+<%= link_to item.title, "##{item.pane_id}", class: component_class, id: item.tab_id, role: :tab, data: { bs_toggle: :tab }, aria: { controls: item.pane_id, selected: item.active? } %>
