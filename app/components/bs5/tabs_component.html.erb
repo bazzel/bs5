@@ -1,14 +1,16 @@
 <% if items.any? %>
-  <nav>
-    <div class="<%= tablist_class %>" role="tablist">
+  <%= vertical_container do %>
+    <nav>
+      <div class="<%= tablist_class %>" role="tablist">
+        <% items.each do |item| %>
+          <%= render Bs5::Tabs::LinkComponent.new(item) %>
+        <% end %>
+      </div>
+    </nav>
+    <div class="tab-content">
       <% items.each do |item| %>
-        <%= render Bs5::Tabs::LinkComponent.new(item) %>
+        <%= item %>
       <% end %>
     </div>
-  </nav>
-  <div class="tab-content">
-    <% items.each do |item| %>
-      <%= item %>
-    <% end %>
-  </div>
+  <% end %>
 <% end %>

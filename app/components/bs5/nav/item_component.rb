@@ -35,10 +35,15 @@ module Bs5
       def set_element_class_names
         class_names = Array(element[:class])
         class_names << Array(@options[:class])
-        class_names << element_classes
+        class_names << extra_classes
+        element[:class] = class_names.compact.uniq.join(' ')
+      end
+
+      def extra_classes
+        class_names = element_classes
         class_names << active_class
         class_names << disabled_class
-        element[:class] = class_names.compact.uniq.join(' ')
+        class_names.compact.uniq
       end
 
       def element_classes
