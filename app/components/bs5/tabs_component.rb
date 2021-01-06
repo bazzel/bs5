@@ -11,6 +11,12 @@ module Bs5
       extract_options
     end
 
+    def before_render
+      items.each do |item|
+        item.style = @style.to_s.singularize
+      end
+    end
+
     private
 
     def extract_options

@@ -16,7 +16,10 @@ module Bs5
 
       describe 'markup' do
         describe 'tabs' do
-          it { is_expected.to have_selector('nav div.nav.nav-tabs[role="tablist"] a.nav-link', count: 2) }
+          it {
+            is_expected.to have_selector('nav div.nav.nav-tabs[role="tablist"] a.nav-link[data-bs-toggle="tab"]',
+                                         count: 2)
+          }
 
           it {
             is_expected.to have_selector(
@@ -29,6 +32,15 @@ module Bs5
               is_expected.to have_selector(
                 'a.nav-link.active[id^="nav-"][data-bs-toggle="tab"][href^="#nav-"][role="tab"][aria-controls^="nav-"][aria-selected="true"]', text: 'Lorem'
               )
+            }
+          end
+
+          describe 'as pills' do
+            let(:options) { { style: :pills } }
+
+            it {
+              is_expected.to have_selector('nav div.nav.nav-pills[role="tablist"] a.nav-link[data-bs-toggle="pill"]',
+                                           count: 2)
             }
           end
         end

@@ -4,6 +4,7 @@ module Bs5
   module Tabs
     class ItemComponent < ViewComponent::Base
       attr_reader :title, :options
+      attr_accessor :style
 
       def initialize(title, options = {})
         @title = title
