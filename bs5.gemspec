@@ -20,10 +20,10 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.6.6'
 
-  spec.add_dependency 'nokogiri', '~> 1.10.10'
-  spec.add_dependency 'rails', '~> 6.0.3', '>= 6.0.3.4'
-  spec.add_dependency 'rouge', '~> 3.25.0'
-  spec.add_dependency 'view_component', '~> 2.23.0'
+  spec.add_dependency 'nokogiri', '~> 1.10'
+  spec.add_dependency 'rails', '~> 6.0'
+  spec.add_dependency 'rouge', '~> 3.25'
+  spec.add_dependency 'view_component', '~> 2.23'
 
   spec.add_development_dependency 'capybara', '~> 3.33'
   spec.add_development_dependency 'rspec-rails', '~> 4.0.1'
